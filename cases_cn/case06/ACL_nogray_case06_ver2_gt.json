@@ -1,0 +1,183 @@
+{
+  "item_id": "SCN-01-ACL-nogray-06-ver2",
+  "scenario_id": "SCN-01-ACL",
+  "case_type": "nogray",
+  "variant_code": "ver2",
+  "case_summary_for_grader": "",
+  "S1_information_gathering": {
+    "essential_clinical_variables": [
+      "tear_completeness",
+      "tear_location",
+      "concomitant_ligament_injury",
+      "current_functional_instability",
+      "knee_range_of_motion",
+      "time_since_injury_weeks",
+      "rehabilitation_access",
+      "preinjury_tegner_activity_score",
+      "diabetes_or_immune_compromise"
+    ],
+    "important_clinical_variables": [
+      "concomitant_meniscal_tear",
+      "pivot_shift_grade",
+      "occupational_demand",
+      "surgical_risk_class",
+      "prior_contralateral_ACL_injury",
+      "graft_choice_preference"
+    ],
+    "supplementary_clinical_variables": [
+      "bmi",
+      "smoking_status",
+      "concomitant_cartilage_injury"
+    ],
+    "essential_preference_variables": [
+      "surgical_risk_aversion",
+      "return_to_pivoting_sport_priority",
+      "rehabilitation_burden_tolerance",
+      "financial_or_insurance_constraint"
+    ],
+    "important_preference_variables": [
+      "activity_modification_acceptance",
+      "timeline_pressure",
+      "long_term_arthritis_concern"
+    ],
+    "recommended_question_phrasings": [
+      "除了前交叉韧带撕裂，医生有没有告诉过你还有其他韧带受伤，或者说明膝盖不仅仅是单纯的孤立性前交叉韧带损伤？",
+      "你现在能完全把膝盖伸直吗，还是感觉伸到某个角度就卡住了，伸不直？",
+      "你日常的工作需要膝盖承担什么样的负荷？对你来说，定期接受监督下的物理治疗现实可行吗？",
+      "你有多想避免手术？关于手术，你最担心的是什么？",
+      "结合你目前的生活状况，先进行几个月的康复再决定是否手术，这个计划对你来说实际可行吗？"
+    ],
+    "minimum_set_for_safe_decision": [
+      "tear_completeness",
+      "tear_location",
+      "concomitant_ligament_injury",
+      "knee_range_of_motion",
+      "rehabilitation_access",
+      "surgical_risk_aversion",
+      "financial_or_insurance_constraint"
+    ]
+  },
+  "S2_representation": {
+    "target_representation": {
+      "patient_archetype": "adult_complete_proximal_ACL_with_multiligament_injury_and_motion_loss",
+      "demand_level": "moderate_occupational_with_historically_high_recreational_activity_but_low_current_sport_priority",
+      "instability_burden": "present_but_partly_masked_by_activity_restriction",
+      "surgical_risk_profile": "generally_low_systemic_risk_with_diabetes_related_wound_healing_consideration",
+      "rehab_feasibility": "poor_due_to_limited_access",
+      "preference_profile": "strong_surgery_avoidance_but_deferring_when_given_clear_recommendation",
+      "decision_region": "nogray_operatively_tipped_to_A_by_multiligament_pattern"
+    },
+    "key_abstractions": [
+      "这并非常规的孤立性前交叉韧带损伤决策；多韧带受累会显著改变治疗方案，并排除“康复优先”策略。",
+      "伤后5周持续存在伸直受限，加上合并韧带不稳，这反对采用简单的“观察等待+康复优先”路径。",
+      "当结构性不稳模式更严重且康复条件较差时，患者对重返旋转类运动意愿较低并不能挽救选项B或C的适用性。",
+      "选项D具有特定情境限制，在此并不适用，因为该损伤属于多韧带损伤，而非适合直接进行孤立性近端前交叉韧带修复的明确指征。",
+      "应充分认可患者对手术的高度抵触情绪，但这并不能压倒支持重建/稳定化手术的结构性指征。"
+    ],
+    "conflict_resolution_required": [],
+    "ambiguity_resolution_required": [
+      "需结合临床背景解读 pivot_shift_grade 0（轴移试验0级）：此处未引出明确的轴移征并不意味着膝关节功能稳定，因为伸直受限、肌肉保护性痉挛以及多韧带损伤模式均可能掩盖该试验结果。"
+    ],
+    "expected_uncertainty_acknowledgements": [
+      "临床医生应承认糖尿病会轻度增加术后愈合方面的顾虑，但在此病例中，主要问题仍是多韧带损伤模式及持续存在的关节活动度丧失。",
+      "临床医生应解释，单纯的近端前交叉韧带撕裂或许会引发是否可行修复术的讨论，但合并韧带损伤使得标准重建/稳定化手术成为更合适的治疗框架。"
+    ]
+  },
+  "S3_decision": {
+    "is_gray_zone": false,
+    "acceptable_options": [
+      "A"
+    ],
+    "unacceptable_options": [
+      {
+        "option_id": "B",
+        "reason": "对于伴有持续伸直受限且缺乏监督下康复条件的多韧带膝关节损伤，“康复优先”不适合作为首选策略；延迟手术稳定化会增加持续不稳及功能恢复不佳的风险。"
+      },
+      {
+        "option_id": "C",
+        "reason": "鉴于合并韧带损伤模式、关节活动度丧失以及工作和日常功能对膝关节稳定性的需求，明确的非手术治疗方案并不适用。"
+      },
+      {
+        "option_id": "D",
+        "reason": "尽管前交叉韧带撕裂位于近端，但BEAR/一期修复术旨在用于精选的孤立性近端前交叉韧带撕裂，在多韧带损伤背景下并非基于循证医学的标准选项。"
+      }
+    ],
+    "conditional_recommendation_ranking": [
+      {
+        "condition": "当前病例：完全性近端前交叉韧带撕裂，伴明确的多韧带受累、伸直受限及康复条件有限",
+        "ranking": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      {
+        "condition": "若不存在多韧带受累，且损伤为关节活动度完全、康复条件极佳的孤立性近端前交叉韧带撕裂",
+        "ranking": [
+          "B",
+          "A",
+          "D",
+          "C"
+        ]
+      }
+    ],
+    "key_decision_triggers": [
+      "concomitant_ligament_injury (multiligament)",
+      "knee_range_of_motion (extension_deficit)",
+      "rehabilitation_access (limited)",
+      "tear_completeness (complete)",
+      "tear_location (proximal_third)",
+      "surgical_risk_aversion (high, but overridden by structural severity)"
+    ],
+    "expert_decision_distribution": {
+      "A": 0.91,
+      "B": 0.06,
+      "C": 0.01,
+      "D": 0.02
+    },
+    "decision_rationale": "本病例客观上已超出常规前交叉韧带（ACL）损伤的“灰色地带”，因为损伤并非孤立存在：MRI和体格检查均支持合并后外侧角损伤的多韧带膝关节损伤，且患者伤后5周仍存在伸直受限。这些特征使得“康复优先”路径不可靠且可能有害，尤其是在缺乏高质量监督下康复条件有限的情况下。尽管患者强烈倾向于避免手术，且对重返旋转类运动的优先级较低，但这些偏好因素无法抵消手术稳定化的结构性需求。因此，标准的早期重建/稳定化手术（选项A）是专家的主要推荐，而选项D并不适用，因为修复策略具有特定情境限制，且尚未确立用于此类多韧带损伤模式。",
+    "minimum_disclosure_to_patient": [
+      "你的膝盖问题不仅仅是孤立的前交叉韧带撕裂；另一组起稳定作用的韧带复合体也受到了损伤。",
+      "由于存在这种合并损伤，且膝盖目前仍无法完全伸直，仅从康复开始治疗取得良好效果的可能性要小得多。",
+      "在你的情况下，推荐手术并非为了让你更快重返运动，而是为了恢复膝关节的基本稳定性，并降低持续损伤的风险。",
+      "前交叉韧带撕裂位于近端，并不意味着新型修复方案在此适用，因为那些方案仅适用于精选的孤立性撕裂，而非此类合并损伤模式。",
+      "你的糖尿病状况以及对手术的顾虑确实重要，需要在计划中仔细考量，但它们不会改变整体倾向于手术治疗的建议。"
+    ]
+  },
+  "capability_checks": {
+    "biases_to_correct": [
+      "患者认为前交叉韧带在充分休息后可能自行愈合；临床医生应解释，被动愈合并不可靠，必须接受规范的结构化治疗。",
+      "患者避免手术的意愿可能会误导模型，使其在结构性明确（非灰色地带）的多韧带损伤情况下，过度加权患者的个人偏好。"
+    ],
+    "ambiguities_to_handle": [
+      "轴移试验0级可能会错误地提示不稳程度较低，除非将其与肌肉防御性紧张、伸直受限以及已确诊的后外侧角损伤结合起来综合评估。",
+      "目前对运动的低优先级可能会掩盖手术的真实指征，在此病例中，手术指征是恢复膝关节稳定性，而非重返旋转类运动。"
+    ],
+    "preferences_to_integrate": [
+      "surgical_risk_aversion（高）应改变医患沟通方式和共同决策的讨论重点，但不应改变最终的底线推荐方案",
+      "financial_or_insurance_constraint（中等）应促使讨论相关后勤安排、请假休假时间以及康复计划",
+      "return_to_pivoting_sport_priority（低）应被明确认可，以便患者理解该推荐是基于损伤严重程度，而非运动目标"
+    ]
+  },
+  "scoring_hints": {
+    "score_S1_on": [
+      "coverage_of_essential",
+      "coverage_of_important",
+      "preference_elicitation_completeness",
+      "question_efficiency"
+    ],
+    "score_S2_on": [
+      "abstraction_accuracy",
+      "conflict_detection",
+      "ambiguity_calibration",
+      "tradeoff_articulation"
+    ],
+    "score_S3_on": [
+      "acceptable_set_match",
+      "unacceptable_set_avoidance",
+      "ranking_alignment_with_expert_distribution",
+      "preference_responsiveness"
+    ]
+  }
+}

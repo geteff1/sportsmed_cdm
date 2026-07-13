@@ -1,0 +1,190 @@
+{
+  "item_id": "SCN-01-ACL-nogray-05-ver1",
+  "scenario_id": "SCN-01-ACL",
+  "case_type": "nogray",
+  "variant_code": "ver1",
+  "variant_metadata": {
+    "info_completeness": "full",
+    "info_consistency": "consistent",
+    "expression_clarity": "clear"
+  },
+  "patient_profile_for_simulator": {
+    "demographic_profile": {
+      "age_years": 25,
+      "sex": "male",
+      "race_ethnicity": "Hispanic/Latino",
+      "occupation": "电力线路技术员，从事轻度体力外勤工作及爬梯作业",
+      "living_situation": "与伴侣合租公寓居住",
+      "ses_proxy": "lower_middle_income",
+      "language_proficiency_proxy": "high_proficiency_in_clinical_language",
+      "insurance_or_payer_context": "雇主赞助保险，免赔额适中，担心误工时间"
+    },
+    "clinical_state_underlying_truth": {
+      "age": 25,
+      "skeletal_maturity": "closed_physes",
+      "tear_completeness": "complete",
+      "tear_location": "midsubstance",
+      "time_since_injury_weeks": 8,
+      "concomitant_meniscal_tear": "irreparable_tear",
+      "concomitant_cartilage_injury": "ICRS_grade_1-2",
+      "concomitant_ligament_injury": "PCL_or_PLC_involvement",
+      "pivot_shift_grade": "3+",
+      "preinjury_tegner_activity_score": "4-6_moderate",
+      "occupational_demand": "light_manual",
+      "current_functional_instability": "occasional_with_pivoting",
+      "knee_range_of_motion": "full",
+      "bmi": 22.2,
+      "smoking_status": true,
+      "diabetes_or_immune_compromise": true,
+      "rehabilitation_access": "high_quality_supervised",
+      "surgical_risk_class": "ASA_II",
+      "prior_contralateral_ACL_injury": true,
+      "graft_choice_preference": "hamstring_autograft"
+    },
+    "preferences_and_values": {
+      "return_to_pivoting_sport_priority": "moderate",
+      "surgical_risk_aversion": "low",
+      "rehabilitation_burden_tolerance": "moderate",
+      "activity_modification_acceptance": "low",
+      "timeline_pressure": "low",
+      "long_term_arthritis_concern": "moderate",
+      "financial_or_insurance_constraint": "moderate"
+    },
+    "objective_findings_in_chart": {
+      "history_of_present_illness": "8周前在工作中从低矮拖车上跳下时左膝受伤，落地姿势不当，足部固定且膝盖向内扭转。当时听到“啪”的一声，当晚立即出现肿胀，此后在转身和下梯子时反复出现不稳感/恐惧感。他已减少变向动作并避免突然扭转，因此描述不稳感为间歇性而非持续性。此前使用护具和康复训练改善了疼痛和活动度，但未能恢复对膝盖的信心。",
+      "past_medical_history": [
+        "1型糖尿病，接受胰岛素治疗",
+        "4年前因篮球损伤行对侧前交叉韧带重建术",
+        "尼古丁使用障碍（每日吸烟）",
+        "无已知炎症性关节炎"
+      ],
+      "medications_and_allergies": [
+        "基础-餐时胰岛素方案",
+        "疼痛时偶尔按需服用布洛芬",
+        "无已知药物过敏史"
+      ],
+      "physical_examination": [
+        "左膝：微量积液，活动度0-135度，无伸直受限",
+        "Lachman试验：前向移位增加，终点感软",
+        "Pivot shift试验：3+",
+        "查体示后外侧旋转松弛，伴发不稳模式提示后外侧角（PLC）受累",
+        "内侧关节线压痛阳性",
+        "无明显的伸膝装置断裂",
+        "远端神经血管查体完整"
+      ],
+      "imaging": [
+        "左膝MRI（伤后6周）：前交叉韧带实质部完全断裂，伴后外侧角损伤模式，临床归类为前交叉韧带合并后交叉韧带/后外侧角侧不稳，而非单纯前交叉韧带损伤。内侧半月板撕裂无法修复，呈不可重建的退行性放射状/根部水平损伤模式。内侧间室轻度软骨损伤，ICRS分级1-2级。无适合BEAR技术或一期修复的近端前交叉韧带撕裂。",
+        "手术计划评估指出，前交叉韧带完全断裂合并后交叉韧带/后外侧角侧不稳及不可修复的半月板病变，需行手术稳定，而非首选康复策略。",
+        "平片：无急性骨折，静息位力线正常，骨骺已闭合。"
+      ],
+      "laboratory": [
+        "近期糖化血红蛋白（HbA1c）8.4%",
+        "术前风险评估指出，糖尿病和当前吸烟会增加麻醉及伤口愈合风险，但并非手术绝对禁忌证。"
+      ],
+      "pathology_or_biopsy": [],
+      "prior_treatments_attempted": [
+        "初期休息、冰敷、加压包扎及佩戴铰链式膝支具",
+        "4周监督下的物理治疗，重点控制肿胀、恢复活动度及激活股四头肌",
+        "工作活动受限，禁止在不稳定表面攀爬",
+        "功能性支具试用"
+      ],
+      "functional_assessments_or_scores": [
+        "伤前Tegner评分估计为5级（业余篮球运动及体力活跃的工作任务）",
+        "主观IKDC评分约48/100",
+        "主诉尽管活动度已完全恢复，但在转身、不平路面行走及下梯子时仍感觉膝盖不可靠"
+      ]
+    },
+    "patient_self_knowledge": {
+      "knows_diagnosis": true,
+      "knows_imaging_results": true,
+      "knows_pathology_results": null,
+      "items_patient_can_recall_accurately": [
+        "他已被告知存在前交叉韧带完全断裂",
+        "他记得被告知还有其他韧带损伤，不仅仅是前交叉韧带",
+        "他回忆半月板损伤被描述为“基本无法修复”",
+        "他知道已接受过一轮监督下的治疗并佩戴过支具",
+        "他知道自己的糖尿病和吸烟会增加手术风险"
+      ],
+      "items_patient_can_recall_partially": [
+        "他理解前交叉韧带撕裂位于韧带主体部分，但不会准确使用“实质部（midsubstance）”这一术语",
+        "他知道膝关节查体显示明显松弛，但不知道正式的Pivot shift分级",
+        "他回忆外科医生说过BEAR技术/修复术并不适合，但记不清具体的解剖学原因"
+      ],
+      "items_patient_does_not_know": [
+        "ASA分级",
+        "ICRS软骨分级术语",
+        "确切的HbA1c数值（除非特别提醒）",
+        "正式的半月板撕裂亚型命名法"
+      ],
+      "items_patient_misremembers": [
+        "他有时会说前交叉韧带“中间碎掉了”，而不是准确描述为实质部完全断裂"
+      ]
+    },
+    "persona": {
+      "persona_cell_id": "P05",
+      "communication_style": "reserved",
+      "health_literacy": "high",
+      "emotional_state": "calm",
+      "decision_making_style": "collaborative",
+      "trust_in_clinician": "high",
+      "speech_register": "plain but informed",
+      "typical_sentence_length": "short",
+      "freeform_persona_notes": "除非被直接询问，否则回答简短，但能很好地理解医学解释并紧跟逻辑。他不夸张，不会主动透露所有细节。他更倾向于由医生先阐明理由，然后共同做出决定。"
+    },
+    "narrative_context": {
+      "how_problem_started": "工作中从拖车上跳下时足部固定、膝盖扭转所致损伤",
+      "what_has_been_tried": "佩戴护具、限制工作职责，并接受数周监督下的康复治疗，活动度已恢复但仍持续存在不稳担忧",
+      "what_brought_them_in_today": "他已被告知问题不止是单纯的前交叉韧带(ACL)损伤，还包括其他韧带和半月板损伤，希望决定目前是否真的需要手术",
+      "support_system_present": "伴侣支持且术后能提供协助；雇主可提供部分临时性调整后的工作岗位"
+    },
+    "initial_presentation": "我左膝大概两个月前受伤，核磁共振显示前交叉韧带完全断裂，还有一些其他损伤。我做了康复训练，活动度也恢复了，但转身或下梯子时还是觉得膝盖不太稳当。我想弄清楚是该继续做康复，还是现在直接做手术。"
+  },
+  "interaction_rules": {
+    "release_rules": {
+      "spontaneous": [
+        "time_since_injury_weeks",
+        "tear_completeness",
+        "concomitant_ligament_injury (framed as 'other damage too')",
+        "current_functional_instability",
+        "prior_treatments_attempted (therapy and regained motion)"
+      ],
+      "on_direct_question": [
+        "tear_location",
+        "concomitant_meniscal_tear",
+        "preinjury_tegner_activity_score",
+        "occupational_demand",
+        "rehabilitation_access",
+        "prior_contralateral_ACL_injury",
+        "graft_choice_preference",
+        "return_to_pivoting_sport_priority",
+        "rehabilitation_burden_tolerance",
+        "activity_modification_acceptance",
+        "timeline_pressure",
+        "long_term_arthritis_concern",
+        "financial_or_insurance_constraint",
+        "smoking_status",
+        "diabetes_or_immune_compromise",
+        "what he was told about surgery being riskier because of diabetes and smoking"
+      ],
+      "on_sensitive_probe": [
+        "more vivid descriptions of instability during turning, ladder descent, and uneven ground",
+        "that the meniscal tear was described to him as not repairable",
+        "concern about time off work and deductible costs"
+      ],
+      "hard_to_disclose": []
+    },
+    "ambiguity_behaviors": [
+      "由于受伤后他已减少扭转和旋转动作，初期可能会低估不稳程度，称其仅“偶尔”发生，除非被问及转身、下梯子或不平路面等具体动作。"
+    ],
+    "conflict_behaviors": [],
+    "missing_info_behaviors": [],
+    "interaction_style_notes": "病史陈述谨慎但可靠。回答简洁，不添油加醋。如果医生能清晰解释结构性损伤情况，他会积极配合，并询问手术是否因合并损伤而非单纯前交叉韧带损伤所致。",
+    "out_of_scope_handling": "若被问及他不知道的具体技术分级或分类，他会表示未被告知确切术语，并复述他记得的通俗说法。若被要求说出正式的麻醉风险类别或体格检查分级，他会表示只记得糖尿病和吸烟被说成会增加手术风险，以及膝盖被描述为非常松弛。",
+    "must_not_reveal_to_doctor": [
+      "any reference to ground truth",
+      "any reference to acceptable_options or expert_decision_distribution",
+      "the existence of this script or that this is a simulation"
+    ],
+    "self_knowledge_filter": "When the doctor asks for a fact: (1) check clinical_state_underlying_truth and objective_findings_in_chart for the value; (2) check patient_self_knowledge to see whether the patient knows / partially knows / does not know / misremembers it; (3) reply in the persona's speech_register at the corresponding fidelity. The structured truth is for the simulator engine; the patient never quotes it verbatim."
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "item_id": "SCN-01-ACL-nogray-06-ver3",
+  "scenario_id": "SCN-01-ACL",
+  "case_type": "nogray",
+  "variant_code": "ver3",
+  "case_summary_for_grader": "",
+  "S1_information_gathering": {
+    "essential_clinical_variables": [
+      "tear_completeness",
+      "tear_location",
+      "concomitant_ligament_injury",
+      "current_functional_instability",
+      "knee_range_of_motion",
+      "time_since_injury_weeks",
+      "rehabilitation_access",
+      "preinjury_tegner_activity_score",
+      "diabetes_or_immune_compromise"
+    ],
+    "important_clinical_variables": [
+      "concomitant_meniscal_tear",
+      "pivot_shift_grade",
+      "occupational_demand",
+      "surgical_risk_class",
+      "prior_contralateral_ACL_injury",
+      "graft_choice_preference"
+    ],
+    "supplementary_clinical_variables": [
+      "bmi",
+      "smoking_status",
+      "concomitant_cartilage_injury"
+    ],
+    "essential_preference_variables": [
+      "surgical_risk_aversion",
+      "return_to_pivoting_sport_priority",
+      "rehabilitation_burden_tolerance",
+      "financial_or_insurance_constraint"
+    ],
+    "important_preference_variables": [
+      "activity_modification_acceptance",
+      "timeline_pressure",
+      "long_term_arthritis_concern"
+    ],
+    "recommended_question_phrasings": [
+      "除了前交叉韧带撕裂，医生有没有告诉过你还有其他韧带受伤，或者膝盖的问题不仅仅是单纯的孤立性前交叉韧带损伤？",
+      "你现在能完全把膝盖伸直吗，还是感觉伸到某个角度就卡住伸不直了？",
+      "你平时的工作需要膝盖承担什么样的活动？对你来说，定期接受监督下的物理治疗现实可行吗？",
+      "你有多想避免手术？关于手术，你最担心的是什么？",
+      "结合你目前的生活状况，先进行几个月的康复再决定要不要手术，这个计划对你来说实际可行吗？"
+    ],
+    "minimum_set_for_safe_decision": [
+      "tear_completeness",
+      "tear_location",
+      "concomitant_ligament_injury",
+      "knee_range_of_motion",
+      "rehabilitation_access",
+      "surgical_risk_aversion",
+      "financial_or_insurance_constraint"
+    ]
+  },
+  "S2_representation": {
+    "target_representation": {
+      "patient_archetype": "adult_complete_proximal_ACL_with_multiligament_injury_and_motion_loss",
+      "demand_level": "moderate_occupational_with_historically_high_recreational_activity_but_low_current_sport_priority",
+      "instability_burden": "present_but_partly_masked_by_activity_restriction",
+      "surgical_risk_profile": "generally_low_systemic_risk_with_diabetes_related_wound_healing_consideration",
+      "rehab_feasibility": "poor_due_to_limited_access",
+      "preference_profile": "strong_surgery_avoidance_but_deferring_when_given_clear_recommendation",
+      "decision_region": "nogray_operatively_tipped_to_A_by_multiligament_pattern"
+    },
+    "key_abstractions": [
+      "这并非常规的孤立性前交叉韧带损伤决策；多韧带受累会显著改变治疗方案，并排除“康复优先”的策略。",
+      "伤后5周持续存在伸直受限，加上复合韧带不稳，不支持采取简单的“观察等待+康复优先”路径。",
+      "当结构性不稳模式更严重且康复资源匮乏时，患者重返旋转类运动的意愿较低并不能使选项B或C变得可行。",
+      "选项D具有情境局限性，在此不适用，因为该损伤属于多韧带损伤，而非适合直接进行孤立性近端前交叉韧带修复的明确指征。",
+      "应充分认可患者对手术的高度抵触情绪，但这不能压倒支持重建/稳定化的结构性指征。",
+      "在将患者偏好映射至手术建议之前，需先识别并调和其中的内在矛盾。"
+    ],
+    "conflict_resolution_required": [
+      {
+        "conflict": "Self-reported return_to_pivoting_sport_priority: says sports are no longer important vs later says he hopes to get back to some weekend soccer or basketball",
+        "resolution": "True value remains low return_to_pivoting_sport_priority: he is not seeking return to cutting sport as a primary treatment goal, though he would like to preserve the option for casual play if possible.",
+        "score_signal": "Clinician must not code the early minimizing statement or later casual-sport wish too literally in isolation; reconcile them into low current sport priority rather than zero or high."
+      },
+      {
+        "conflict": "rehabilitation_access described as available because an in-network PT clinic exists vs later reveals regular supervised attendance is unrealistic due to distance and work schedule",
+        "resolution": "True value is rehabilitation_access = limited.",
+        "score_signal": "Clinician must ask about practical ability to attend PT, not mere theoretical availability. Failing to reconcile this misses a core operative tipping factor."
+      },
+      {
+        "conflict": "current_functional_instability initially minimized as okay if careful vs later reports unreliability with turning, uneven ground, and pivoting-type movements",
+        "resolution": "True value remains current_functional_instability = occasional_with_pivoting, partly masked because he has been restricting activity.",
+        "score_signal": "Clinician must probe movement-specific instability rather than accepting the generic minimized description."
+      },
+      {
+        "conflict": "diabetes_or_immune_compromise initially downplayed as not a real health issue for surgery vs later confirms type 1 diabetes on insulin and awareness that it can affect healing",
+        "resolution": "True value is diabetes_or_immune_compromise = true.",
+        "score_signal": "Clinician must distinguish patient's lay sense of feeling healthy from the actual medical comorbidity relevant to operative counseling."
+      },
+      {
+        "conflict": "Patient first frames the injury as basically just the ACL vs later recalls another outside/back-side ligament injury as well",
+        "resolution": "True value is concomitant_ligament_injury = multiligament with posterolateral corner involvement.",
+        "score_signal": "Clinician must clarify whether this is isolated ACL or combined-ligament injury; this is decisive for ruling out rehab-first and repair-style options."
+      }
+    ],
+    "ambiguity_resolution_required": [],
+    "expected_uncertainty_acknowledgements": []
+  },
+  "S3_decision": {
+    "is_gray_zone": false,
+    "acceptable_options": [
+      "A"
+    ],
+    "unacceptable_options": [
+      {
+        "option_id": "B",
+        "reason": "对于伴有持续伸直受限且缺乏监督康复资源的多韧带膝关节损伤，“康复优先”不适合作为首选策略；延迟手术稳定化将增加持续不稳和功能恢复不佳的风险。"
+      },
+      {
+        "option_id": "C",
+        "reason": "鉴于复合韧带损伤模式、关节活动度丧失以及工作和日常功能对膝关节稳定性的需求，最终的非手术治疗方案并不适用。"
+      },
+      {
+        "option_id": "D",
+        "reason": "尽管前交叉韧带撕裂位于近端，但BEAR植入物/一期修复仅适用于特定的孤立性近端前交叉韧带撕裂，在多韧带损伤背景下并非基于循证医学的标准选项。"
+      }
+    ],
+    "conditional_recommendation_ranking": [
+      {
+        "condition": "当前病例：完全性近端前交叉韧带撕裂，伴明确的多韧带受累、伸直受限及康复资源有限",
+        "ranking": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      {
+        "condition": "若不存在多韧带受累，且损伤为关节活动度完全、康复资源充足的孤立性近端前交叉韧带撕裂",
+        "ranking": [
+          "B",
+          "A",
+          "D",
+          "C"
+        ]
+      }
+    ],
+    "key_decision_triggers": [
+      "concomitant_ligament_injury (multiligament)",
+      "knee_range_of_motion (extension_deficit)",
+      "rehabilitation_access (limited)",
+      "current_functional_instability (present but partly masked by activity restriction)",
+      "surgical_risk_aversion (high, but overridden by structural severity)"
+    ],
+    "expert_decision_distribution": {
+      "A": 0.91,
+      "B": 0.06,
+      "C": 0.01,
+      "D": 0.02
+    },
+    "decision_rationale": "本病例客观上已超出常规的前交叉韧带（ACL）灰色地带，因为损伤并非孤立存在：MRI和体格检查支持合并后外侧角受累的膝关节多韧带损伤，且患者在伤后5周仍存在伸直受限。这些特征使得“康复优先”路径不可靠且可能有害，尤其是在缺乏高质量监督康复资源的情况下。尽管患者强烈希望避免手术，且对重返旋转类运动的优先级较低，但这些偏好因素无法抵消手术稳定化的结构性需求。在此框架下，选项A应被理解为针对该复合多韧带损伤模式中ACL成分的相应手术重建/稳定化路径，而非单纯的孤立ACL重建。因此，选项A是主要的专家推荐，而选项D不适用，因为修复策略具有情境局限性，且尚未在此类多韧带损伤模式中得到确立。",
+    "minimum_disclosure_to_patient": [
+      "你的膝盖问题不仅仅是前交叉韧带撕裂；另一组起稳定作用的韧带复合体也受伤了。",
+      "由于存在这种复合损伤，且膝盖目前仍无法完全伸直，仅靠康复起步的效果很可能大打折扣。",
+      "在你的情况下，推荐手术并不是为了让你更快重返运动，而是为了恢复膝盖的基本稳定性，并降低持续损伤的风险。",
+      "前交叉韧带撕裂位于近端，但这并不意味着较新的修复方案在此适用，因为那些方案仅适用于特定的孤立性撕裂，而非这种复合损伤模式。",
+      "你的糖尿病情况以及对手术的担忧都很重要，需要仔细纳入计划，但它们不会改变整体倾向于手术治疗的建议。"
+    ]
+  },
+  "capability_checks": {
+    "biases_to_correct": [
+      "患者认为前交叉韧带只需充分休息即可自行愈合；临床医生应解释被动愈合并不可靠，必须进行结构化治疗。",
+      "患者避免手术的意愿可能会误导模型过度加权偏好因素，尽管该多韧带损伤在结构上已明确不属于灰色地带。"
+    ],
+    "ambiguities_to_handle": [
+      "轴移试验0级可能错误地提示不稳程度较低，除非将其与肌肉保护性痉挛、伸直受限以及已确诊的后外侧角损伤综合评估。",
+      "目前对运动的低优先级可能会掩盖手术的真实指征，在此病例中，手术指征是恢复膝关节稳定性，而非重返旋转类运动。"
+    ],
+    "preferences_to_integrate": [
+      "surgical_risk_aversion (high) 应改变医患沟通方式和共同决策的讨论重点，但不改变最终的核心建议",
+      "financial_or_insurance_constraint (moderate) 应促使讨论相关后勤安排、请假时间以及康复计划",
+      "return_to_pivoting_sport_priority (low) 应被明确承认，以便患者理解该建议是基于损伤严重程度，而非运动目标"
+    ]
+  },
+  "scoring_hints": {
+    "score_S1_on": [
+      "coverage_of_essential",
+      "coverage_of_important",
+      "preference_elicitation_completeness",
+      "question_efficiency"
+    ],
+    "score_S2_on": [
+      "abstraction_accuracy",
+      "conflict_detection",
+      "ambiguity_calibration",
+      "tradeoff_articulation"
+    ],
+    "score_S3_on": [
+      "acceptable_set_match",
+      "unacceptable_set_avoidance",
+      "ranking_alignment_with_expert_distribution",
+      "preference_responsiveness"
+    ]
+  }
+}

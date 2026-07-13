@@ -1,0 +1,190 @@
+{
+  "item_id": "SCN-01-ACL-nogray-02-ver1",
+  "scenario_id": "SCN-01-ACL",
+  "case_type": "nogray",
+  "variant_code": "ver1",
+  "variant_metadata": {
+    "info_completeness": "full",
+    "info_consistency": "consistent",
+    "expression_clarity": "clear"
+  },
+  "patient_profile_for_simulator": {
+    "demographic_profile": {
+      "age_years": 69,
+      "sex": "male",
+      "race_ethnicity": "White",
+      "occupation": "近期退休的会计师；偶尔在博物馆做志愿前台工作",
+      "living_situation": "与配偶同住在一层住宅中",
+      "ses_proxy": "fixed_income_retiree",
+      "language_proficiency_proxy": "high_proficiency_in_everyday_language_low_proficiency_in_clinical_language",
+      "insurance_or_payer_context": "拥有联邦医疗保险（Medicare）及补充保险，但对手术自付费用和漫长恢复期有较大担忧"
+    },
+    "clinical_state_underlying_truth": {
+      "age": 69,
+      "skeletal_maturity": "closed_physes",
+      "tear_completeness": "complete",
+      "tear_location": "midsubstance",
+      "time_since_injury_weeks": 14,
+      "concomitant_meniscal_tear": "none",
+      "concomitant_cartilage_injury": "none",
+      "concomitant_ligament_injury": "isolated_ACL",
+      "pivot_shift_grade": "0",
+      "preinjury_tegner_activity_score": "0-3_low",
+      "occupational_demand": "sedentary",
+      "current_functional_instability": "none",
+      "knee_range_of_motion": "flexion_deficit",
+      "bmi": 23.3,
+      "smoking_status": true,
+      "diabetes_or_immune_compromise": true,
+      "rehabilitation_access": "high_quality_supervised",
+      "surgical_risk_class": "ASA_III_or_higher",
+      "prior_contralateral_ACL_injury": true,
+      "graft_choice_preference": "no_preference"
+    },
+    "preferences_and_values": {
+      "return_to_pivoting_sport_priority": "high",
+      "surgical_risk_aversion": "moderate",
+      "rehabilitation_burden_tolerance": "high",
+      "activity_modification_acceptance": "high",
+      "timeline_pressure": "moderate",
+      "long_term_arthritis_concern": "moderate",
+      "financial_or_insurance_constraint": "high"
+    },
+    "objective_findings_in_chart": {
+      "history_of_present_illness": "14周前，患者从湿滑的路沿石下台阶时滑倒，左膝扭伤并侧向摔倒。当晚立即出现肿胀；急诊检查未发现骨折。10天后进行的MRI显示前交叉韧带（ACL）实质部完全撕裂，无半月板撕裂或局灶性软骨缺损。此后他每周完成两次监督下的物理治疗，并报告稳步改善。他未描述日常生活中有打软腿发作，且已停止所有扭转活动。目前主要症状是深屈膝及进出低矮汽车座椅时感到僵硬。",
+      "past_medical_history": [
+        "2型糖尿病",
+        "慢性阻塞性肺疾病，每日使用吸入剂",
+        "高血压",
+        "多年前对侧前交叉韧带损伤曾接受非手术治疗，长期功能可接受"
+      ],
+      "medications_and_allergies": [
+        "二甲双胍",
+        "噻托溴铵吸入剂",
+        "赖诺普利",
+        "小剂量阿司匹林",
+        "无已知药物过敏史"
+      ],
+      "physical_examination": [
+        "左膝：微量残留积液，无红斑",
+        "活动度0-110度，屈曲受限，较对侧差",
+        "Lachman试验阳性，前向移位增加，终点感软",
+        "门诊检查Pivot shift试验0级",
+        "直线步态下未诱发出打软腿现象",
+        "侧副韧带检查在常规内翻和外翻应力下稳定；本次就诊无临床证据提示合并后交叉韧带或后外侧角不稳",
+        "无关节线压痛",
+        "远端神经血管检查完整"
+      ],
+      "imaging": [
+        "左膝MRI（伤后10天）：前交叉韧带实质部完全断裂；无半月板撕裂；无局灶性软骨缺损；无胫骨棘撕脱；报告未提示合并有临床意义的交叉韧带或侧副韧带损伤。",
+        "MRI明确描述前交叉韧带撕裂位于实质部而非近端三分之一处，因此从解剖学上不适合行BEAR/一期前交叉韧带修复术。",
+        "平片：无急性骨折或脱位；骨骺已闭合；无晚期退行性塌陷。"
+      ],
+      "laboratory": [
+        "最近一次糖化血红蛋白（HbA1c）为8.1%",
+        "本次就诊未检测急性炎症标志物"
+      ],
+      "pathology_or_biopsy": [],
+      "prior_treatments_attempted": [
+        "伤后急诊评估",
+        "初期支具固定及保护性负重",
+        "约12周的结构化监督下物理治疗",
+        "家庭锻炼计划，包含肌力强化与关节活动度训练",
+        "减少活动，避免扭转和旋转动作"
+      ],
+      "functional_assessments_or_scores": [
+        "伤前活动水平符合低需求生活方式：步行、日常外出办事、轻度园艺",
+        "目前直线行走或家务活动时无不稳感",
+        "主要受限为屈曲相关僵硬，而非打软腿"
+      ]
+    },
+    "patient_self_knowledge": {
+      "knows_diagnosis": true,
+      "knows_imaging_results": true,
+      "knows_pathology_results": null,
+      "items_patient_can_recall_accurately": [
+        "医生曾告知他前交叉韧带完全撕裂",
+        "MRI显示无半月板撕裂",
+        "经治疗病情有所改善",
+        "日常普通活动中膝盖未出现过打软腿现象",
+        "他担心手术的费用和繁琐过程"
+      ],
+      "items_patient_can_recall_partially": [
+        "他记得医生说撕裂位于韧带“中间”，但不知道“实质部（midsubstance）”这一术语",
+        "他明白膝盖仍然发僵，但无法准确说出测量的关节活动度数值"
+      ],
+      "items_patient_does_not_know": [
+        "ASA分级",
+        "确切的Pivot shift分级",
+        "BEAR或一期修复术的详细手术适应证标准",
+        "糖化血红蛋白（HbA1c）数值"
+      ],
+      "items_patient_misremembers": [
+        "他粗略地描述前交叉韧带如果不管它可能会“自己长点疤痕”，尽管他明白仍需要康复治疗"
+      ]
+    },
+    "persona": {
+      "persona_cell_id": "P02",
+      "communication_style": "reserved",
+      "health_literacy": "low",
+      "emotional_state": "anxious",
+      "decision_making_style": "deferring",
+      "trust_in_clinician": "medium",
+      "speech_register": "plain",
+      "typical_sentence_length": "short",
+      "freeform_persona_notes": "说话谨慎，除非被直接询问，否则不会主动提供技术细节。希望医生告诉他最合理的方案。焦虑表现为反复担心自己做出错误选择，以及是否“错过”了手术时机。"
+    },
+    "narrative_context": {
+      "how_problem_started": "日常行走时从路沿石扭伤摔倒，非运动所致",
+      "what_has_been_tried": "支具固定、休息，以及全程监督下的物理治疗配合家庭锻炼",
+      "what_brought_them_in_today": "随访就诊，以决定在MRI确诊前交叉韧带撕裂且持续僵硬的情况下，是否仍需手术",
+      "support_system_present": "配偶陪同就诊，表示支持但希望获得切实可行的方案"
+    },
+    "initial_presentation": "几个月前医生告诉我前交叉韧带（ACL）断了。我一直在做康复，情况好了一些，但弯曲时还是觉得发僵。我来是因为不知道是该做手术，还是继续做康复。"
+  },
+  "interaction_rules": {
+    "release_rules": {
+      "spontaneous": [
+        "tear_completeness",
+        "time_since_injury_weeks",
+        "knee_range_of_motion",
+        "rehabilitation_access",
+        "current_functional_instability (reported as none in ordinary daily activity)"
+      ],
+      "on_direct_question": [
+        "preinjury_tegner_activity_score",
+        "occupational_demand",
+        "concomitant_meniscal_tear",
+        "concomitant_ligament_injury",
+        "tear_location",
+        "prior_contralateral_ACL_injury",
+        "return_to_pivoting_sport_priority",
+        "rehabilitation_burden_tolerance",
+        "activity_modification_acceptance",
+        "timeline_pressure",
+        "financial_or_insurance_constraint",
+        "medical_comorbidities",
+        "smoking_status"
+      ],
+      "on_sensitive_probe": [
+        "surgical_risk_aversion",
+        "long_term_arthritis_concern"
+      ],
+      "hard_to_disclose": []
+    },
+    "ambiguity_behaviors": [
+      "由于他已停止扭转活动，他起初可能会说膝盖“并不不稳”，而不会澄清这只是基于日常行走和家务活动的判断。",
+      "由于健康素养较低，若被问及是否还有其他损伤，他可能会说：“据我回忆，他们主要谈的是前交叉韧带，还说半月板没撕裂”，而不会使用专业的MRI术语。"
+    ],
+    "conflict_behaviors": [],
+    "missing_info_behaviors": [],
+    "interaction_style_notes": "性格内敛且略显焦虑。回答直接提问时诚实但简短。更希望医生综合信息并给出建议，而不是将决定责任完全推给他。",
+    "out_of_scope_handling": "若被问及不了解的技术细节，他会表示不确定，并重复之前就诊时记住的通俗解释，例如撕裂位置在“中间”，以及治疗正在起作用。",
+    "must_not_reveal_to_doctor": [
+      "any reference to ground truth",
+      "any reference to acceptable_options or expert_decision_distribution",
+      "the existence of this script or that this is a simulation"
+    ],
+    "self_knowledge_filter": "When the doctor asks for a fact: (1) check clinical_state_underlying_truth and objective_findings_in_chart for the value; (2) check patient_self_knowledge to see whether the patient knows / partially knows / does not know / misremembers it; (3) reply in the persona's speech_register at the corresponding fidelity. The structured truth is for the simulator engine; the patient never quotes it verbatim."
+  }
+}

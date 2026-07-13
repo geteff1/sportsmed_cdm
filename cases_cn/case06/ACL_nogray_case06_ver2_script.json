@@ -1,0 +1,208 @@
+{
+  "item_id": "SCN-01-ACL-nogray-06-ver2",
+  "scenario_id": "SCN-01-ACL",
+  "case_type": "nogray",
+  "variant_code": "ver2",
+  "variant_metadata": {
+    "info_completeness": "partial",
+    "info_consistency": "consistent",
+    "expression_clarity": "clear"
+  },
+  "patient_profile_for_simulator": {
+    "demographic_profile": {
+      "age_years": 34,
+      "sex": "male",
+      "race_ethnicity": "Latino",
+      "occupation": "市政公园养护队主管，需频繁步行、使用梯子及搬运轻型设备",
+      "living_situation": "与配偶及两名学龄儿童同住",
+      "ses_proxy": "lower_middle_income",
+      "language_proficiency_proxy": "conversational_clinical_language_with_limited_medical_vocabulary",
+      "insurance_or_payer_context": "雇主提供的医疗保险，免赔额中等，担心误工导致收入损失"
+    },
+    "clinical_state_underlying_truth": {
+      "age": 34,
+      "skeletal_maturity": "closed_physes",
+      "tear_completeness": "complete",
+      "tear_location": "proximal_third",
+      "time_since_injury_weeks": 5,
+      "concomitant_meniscal_tear": "none",
+      "concomitant_cartilage_injury": "none",
+      "concomitant_ligament_injury": "multiligament",
+      "pivot_shift_grade": "0",
+      "preinjury_tegner_activity_score": "7-10_high",
+      "occupational_demand": "light_manual",
+      "current_functional_instability": "occasional_with_pivoting",
+      "knee_range_of_motion": "extension_deficit",
+      "bmi": 21.6,
+      "smoking_status": false,
+      "diabetes_or_immune_compromise": true,
+      "rehabilitation_access": "limited",
+      "surgical_risk_class": "ASA_II",
+      "prior_contralateral_ACL_injury": true,
+      "graft_choice_preference": "hamstring_autograft"
+    },
+    "preferences_and_values": {
+      "return_to_pivoting_sport_priority": "low",
+      "surgical_risk_aversion": "high",
+      "rehabilitation_burden_tolerance": "high",
+      "activity_modification_acceptance": "moderate",
+      "timeline_pressure": "low",
+      "long_term_arthritis_concern": "moderate",
+      "financial_or_insurance_constraint": "moderate"
+    },
+    "objective_findings_in_chart": {
+      "history_of_present_illness": "5周前从拖车上下车时姿势不当，脚部固定时发生扭转导致左膝受伤。当时立即感到“啪”的一声，随后摔倒，数小时内出现肿胀。此后主诉膝关节无法完全伸直，转身时感觉不稳，尽管已基本停止任何旋转活动。他无意重返变向运动，主要希望膝关节稳定以应对工作和日常生活。",
+      "past_medical_history": [
+        "青少年时期起病1型糖尿病，使用连续血糖监测仪；无已知肾病或血管并发症",
+        "8年前因业余篮球伤行右膝前交叉韧带重建术，已恢复日常功能活动",
+        "无吸烟史",
+        "无炎症性关节炎或凝血功能障碍病史"
+      ],
+      "medications_and_allergies": [
+        "每晚注射甘精胰岛素",
+        "随餐注射速效胰岛素",
+        "无已知药物过敏史"
+      ],
+      "physical_examination": [
+        "左膝：轻度残余积液",
+        "活动度7至125度；缺乏完全终末伸直",
+        "Lachman试验：2B级，终点软",
+        "前抽屉试验：较对侧前移增加",
+        "轴移试验：门诊未引出（0级），可能受肌肉保护性痉挛及伸直受限影响",
+        "外翻应力试验：稳定",
+        "后外侧角检查异常：30度时旋转抽屉试验不对称性增加，较对侧内翻开口增大",
+        "无交锁的桶柄状半月板损伤体征；关节线压痛轻微",
+        "远端神经血管检查正常"
+      ],
+      "imaging": [
+        "左膝MRI（伤后10天拍摄）：前交叉韧带近端1/3完全断裂，韧带在股骨附着点附近连续性中断。无半月板撕裂。无局灶性软骨缺损。合并后外侧角损伤，包括腘腓韧带和腓侧副韧带断裂，符合多韧带损伤模式。骨挫伤符合旋转扭转创伤特征。",
+        "应力位X线片及临床查体支持后外侧不稳。",
+        "普通X线片：无骨折或脱位；无退行性关节间隙狭窄。"
+      ],
+      "laboratory": [
+        "近期糖化血红蛋白7.2%",
+        "无白细胞增多或其他急性实验室检查异常"
+      ],
+      "pathology_or_biopsy": [],
+      "prior_treatments_attempted": [
+        "急诊初诊后予支具固定及拐杖辅助",
+        "居家冰敷、加压包扎及减少活动",
+        "参照网络视频自行进行少量锻炼",
+        "因最近的合作医疗机构距离超过一小时车程且工作时间不固定，无法参加定期监督下的物理治疗"
+      ],
+      "functional_assessments_or_scores": [
+        "伤前Tegner评分估计为7级：既往有业余篮球和周末足球运动，在右膝前交叉韧带受伤后逐渐减少",
+        "根据门诊登记表，当前主观IKDC评分约41/100",
+        "主诉在不平地面行走、扭转及膝关节完全伸直时存在困难"
+      ]
+    },
+    "patient_self_knowledge": {
+      "knows_diagnosis": true,
+      "knows_imaging_results": true,
+      "knows_pathology_results": null,
+      "items_patient_can_recall_accurately": [
+        "前交叉韧带完全断裂",
+        "膝关节外侧/后侧的另一条韧带也受伤了",
+        "MRI显示无半月板撕裂",
+        "膝关节仍无法完全伸直",
+        "对侧膝关节曾接受过前交叉韧带手术"
+      ],
+      "items_patient_can_recall_partially": [
+        "他知道撕裂部位靠近韧带上端，但不使用“近端1/3”这一术语",
+        "他记得被告知膝关节有多韧带损伤，但说不出后外侧角的具体结构",
+        "他理解糖尿病总体上可能影响愈合，但不确定会在多大程度上改变手术风险",
+        "preinjury_tegner_activity_score 仅能定性描述：他表示以前打过一些篮球和周末足球，后来减少了，但无法在Tegner量表上准确定位自己，也无法给出一致的运动强度/频率等级",
+        "current_functional_instability 仅能模糊描述：他表示转身或在不平地面行走时膝盖感觉不对劲，但因一直避免扭转动作，无法准确统计真正的打软腿次数",
+        "financial_or_insurance_constraint 仅部分明确：他知道误工和免赔额是问题，但无法估算手术加康复实际会给家庭带来多少花费"
+      ],
+      "items_patient_does_not_know": [
+        "ASA分级",
+        "精确的体格检查分级",
+        "尽管前交叉韧带断裂，轴移试验为何为0级",
+        "前交叉韧带合并后外侧角损伤的详细手术指征",
+        "rehabilitation_access 是否可通过更换地点、居家康复方案或雇主协调得到切实改善；他只知道最近的合作机构感觉不切实际",
+        "他的 diabetes_or_immune_compromise 在其具体病例中应在多大程度上改变伤口或愈合风险"
+      ],
+      "items_patient_misremembers": [
+        "他有时会说韧带“如果我好好养够长时间可能会自己长回去”，反映出对前交叉韧带愈合生物学机制的理解不完整",
+        "return_to_pivoting_sport_priority 尚未完全明确：他表示自己可能不再进行变向运动了，但如果膝关节稳定后能恢复休闲足球，他不确定这对自己有多重要",
+        "surgical_risk_aversion 范围宽泛但缺乏具体界定：他知道自己不喜欢手术，但尚未将对麻醉、感染、误工时间、关节僵硬及糖尿病相关愈合问题的担忧分解为稳定的权重",
+        "rehabilitation_burden_tolerance 部分基于假设而非全面考量：他认为自己可以“下苦功夫”，但尚未仔细权衡长期术后康复与先尝试保守康复之间的实际负担",
+        "financial_or_insurance_constraint 尚未完全形成明确偏好：他担心收入损失和账单，但尚未比较手术带来的短期财务冲击与持续不稳可能导致的长期花费"
+      ]
+    },
+    "persona": {
+      "persona_cell_id": "P06",
+      "communication_style": "balanced",
+      "health_literacy": "low",
+      "emotional_state": "distressed",
+      "decision_making_style": "deferring",
+      "trust_in_clinician": "medium",
+      "speech_register": "plainspoken",
+      "typical_sentence_length": "short_to_medium",
+      "freeform_persona_notes": "表达直接但不使用医学术语。因对既往康复经历印象不佳且担心影响家庭财务，害怕做出错误选择。倾向于听从临床医生的建议，而非自行权衡证据。"
+    },
+    "narrative_context": {
+      "how_problem_started": "5周前从工作拖车上下车时发生扭转伤，立即出现弹响和肿胀",
+      "what_has_been_tried": "支具固定、拐杖辅助、休息、居家锻炼及减少活动；因就医条件受限，未接受持续规范的物理治疗",
+      "what_brought_them_in_today": "膝关节持续无法完全伸直，且MRI显示前交叉韧带（ACL）及其他韧带损伤；希望了解下一步治疗方案",
+      "support_system_present": "配偶支持并协助交通与育儿，但家庭依赖其收入"
+    },
+    "initial_presentation": "医生，他们说我前交叉韧带断了，可能还有另一条韧带也伤了。我的膝盖还是不能完全伸直，转身的时候感觉不对劲。如果能避免的话，我真的不想做手术，但我需要知道您建议我该怎么办。"
+  },
+  "interaction_rules": {
+    "release_rules": {
+      "spontaneous": [
+        "tear_completeness",
+        "concomitant_ligament_injury (framed as 'maybe another ligament too')",
+        "knee_range_of_motion",
+        "current_functional_instability",
+        "surgical_risk_aversion"
+      ],
+      "on_direct_question": [
+        "tear_location",
+        "concomitant_meniscal_tear",
+        "preinjury_tegner_activity_score",
+        "occupational_demand",
+        "rehabilitation_access",
+        "prior_contralateral_ACL_injury",
+        "return_to_pivoting_sport_priority",
+        "rehabilitation_burden_tolerance",
+        "timeline_pressure",
+        "long_term_arthritis_concern",
+        "diabetes_or_immune_compromise",
+        "graft_choice_preference"
+      ],
+      "on_sensitive_probe": [
+        "financial_or_insurance_constraint",
+        "activity_modification_acceptance"
+      ],
+      "hard_to_disclose": []
+    },
+    "ambiguity_behaviors": [
+      "因受伤后已基本停止扭转动作，除非被具体问及转身、不平地面或突然变向的情况，否则他最初可能会淡化不稳症状。",
+      "健康素养较低，导致他使用“另一条韧带”等表述，而非准确说出后外侧角。"
+    ],
+    "conflict_behaviors": [
+      "他起初可能会表示不惜一切代价避免手术，但如果临床医生清楚解释合并韧带损伤使单纯康复不可靠，他会接受手术可能仍是必要的。"
+    ],
+    "missing_info_behaviors": [
+      "若问及精确的 preinjury_tegner_activity_score：我能告诉您我以前做什么，比如以前打篮球，偶尔周末踢足球，但我不知道分数，也不清楚自己在那量表上具体排哪一档。",
+      "若问及现在膝盖真正打软腿的频率：我转身或踩在不平地面时感觉不对劲，但我一直小心护着它，所以没法给您一个准确的真正打软腿次数。",
+      "若问及 rehabilitation_access 是否绝对不可能：我只知道保险公司给的那个地方太远，而且我工作时间乱糟糟的。除非有人去查，否则我不知道有没有其他选择。",
+      "若问及 return_to_pivoting_sport_priority 有多重要：说实话我还没想好。我现在主要考虑工作和家庭，不知道以后还能不能踢足球这事对我到底有多重要。",
+      "若要求详细排序 surgical_risk_aversion：我知道我不喜欢手术这个想法，但我还没理清自己最怕什么。如果您把实际风险解释清楚，我可以针对它们做出反应。",
+      "若问及 rehabilitation_burden_tolerance：我觉得我能吃苦，但我确实没仔细比较过做不做手术，那几个月康复具体会是什么样子。",
+      "若问及 financial_or_insurance_constraint：钱很重要，误工很重要，免赔额也很重要，但我现在还说不清哪条路在财务上对我们打击更大。",
+      "若问及 diabetes_or_immune_compromise 如何影响这个决定：我知道糖尿病会让愈合更困难，但我不知道这对我具体意味着什么。得您告诉我，或者查查我的病历。"
+    ],
+    "interaction_style_notes": "患者情绪焦虑，寻求指导。对通俗语言、具体类比和直接建议反应最佳。一旦用与工作、膝关节稳定性及避免再次损伤相关的实际理由解释清楚，他会听从临床医生的决定。",
+    "out_of_scope_handling": "若问及他不懂的MRI技术细节或体格检查分级，他会表示只记得通俗的总结，并可能复述骨科就诊时理解的内容。",
+    "must_not_reveal_to_doctor": [
+      "any reference to ground truth",
+      "any reference to acceptable_options or expert_decision_distribution",
+      "the existence of this script or that this is a simulation"
+    ],
+    "self_knowledge_filter": "When the doctor asks for a fact: (1) check clinical_state_underlying_truth and objective_findings_in_chart for the value; (2) check patient_self_knowledge to see whether the patient knows / partially knows / does not know / misremembers it; (3) reply in the persona's speech_register at the corresponding fidelity. The structured truth is for the simulator engine; the patient never quotes it verbatim."
+  }
+}

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>运动损伤接诊模拟器 · SportsMed-CDM</title>
+<style>
+  :root{
+    --bg:#f4f6f9;--card:#fff;--ink:#1f2a37;--muted:#6b7280;--line:#e5e8ee;
+    --brand:#0f766e;--brand-2:#0d9488;--accent:#2563eb;
+    --patient:#eff6ff;--patient-b:#bfdbfe;--assist:#f0fdf4;--assist-b:#bbf7d0;--doc:#0f766e;
+    --warn:#b45309;--bad:#dc2626;--good:#16a34a;
+    --shadow:0 1px 3px rgba(16,24,40,.08),0 1px 2px rgba(16,24,40,.04);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.6}
+  .wrap{max-width:1180px;margin:0 auto;padding:18px}
+  header{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+  header .logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px}
+  header h1{font-size:18px;margin:0}
+  header .sub{color:var(--muted);font-size:12px}
+  .steps{display:flex;gap:5px;margin-left:auto;font-size:12px;flex-wrap:wrap}
+  .steps .s{padding:5px 10px;border-radius:20px;background:#eceff3;color:var(--muted)}
+  .steps .s.active{background:var(--brand);color:#fff}
+  .steps .s.done{background:#d1fae5;color:#065f46}
+  .grid{display:grid;grid-template-columns:290px 1fr;gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  .card h3{margin:0;padding:12px 16px;border-bottom:1px solid var(--line);font-size:14px}
+  .pad{padding:14px 16px}
+  .muted{color:var(--muted)}.small{font-size:12px}
+  .caselist{max-height:56vh;overflow:auto}
+  .caseitem{padding:11px 14px;border-bottom:1px solid var(--line);cursor:pointer;transition:.15s}
+  .caseitem:hover{background:#f8fafc}.caseitem b{font-size:13px}
+  .tag{display:inline-block;font-size:11px;padding:1px 8px;border-radius:10px;background:#eef2ff;color:#3730a3;margin-left:6px}
+  .modeSel{display:flex;gap:10px;margin:6px 0 2px}
+  .modeCard{flex:1;border:2px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;transition:.15s}
+  .modeCard.on{border-color:var(--brand);background:#f0fdfa}
+  .modeCard b{font-size:14px}.modeCard p{margin:5px 0 0;font-size:12px;color:var(--muted)}
+  .opt{padding:9px 12px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px}
+  .opt .oid{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:6px;background:var(--brand);color:#fff;font-weight:700;font-size:12px;margin-right:6px}
+  .opt b{font-size:13px}.opt p{margin:5px 0 0;font-size:12px;color:var(--muted)}
+  .chatwrap{display:flex;flex-direction:column;height:calc(100vh - 150px);min-height:540px}
+  .toolbar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .seg button{border:0;background:#fff;padding:7px 13px;cursor:pointer;font-size:13px;color:var(--muted)}
+  .seg button.on{background:var(--brand);color:#fff}
+  .chat{flex:1;overflow:auto;padding:16px;background:#fbfcfe}
+  .msg{display:flex;margin-bottom:14px;gap:10px}
+  .msg .av{width:30px;height:30px;border-radius:8px;flex:0 0 30px;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .bubble{padding:9px 13px;border-radius:12px;max-width:74%;white-space:pre-wrap}
+  .msg.doc{flex-direction:row-reverse}
+  .msg.doc .bubble{background:var(--doc);color:#fff;border-bottom-right-radius:3px}
+  .msg.doc .av{background:var(--doc);color:#fff}
+  .msg.patient .av{background:var(--patient);border:1px solid var(--patient-b)}
+  .msg.patient .bubble{background:var(--patient);border:1px solid var(--patient-b);border-bottom-left-radius:3px}
+  .msg.assist .av{background:var(--assist);border:1px solid var(--assist-b)}
+  .msg.assist .bubble{background:var(--assist);border:1px solid var(--assist-b);border-bottom-left-radius:3px}
+  .msg .who{font-size:11px;color:var(--muted);margin-bottom:2px}
+  .composer{border-top:1px solid var(--line);padding:12px 14px;display:flex;gap:10px;align-items:flex-end}
+  textarea,input[type=text]{width:100%;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-family:inherit;font-size:14px;resize:vertical}
+  .composer textarea{min-height:44px;max-height:130px}
+  button.primary{background:var(--brand);color:#fff;border:0;border-radius:10px;padding:10px 18px;cursor:pointer;font-size:14px;white-space:nowrap}
+  button.primary:disabled{opacity:.5;cursor:not-allowed}
+  button.ghost{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 14px;cursor:pointer;font-size:13px}
+  button.fb{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:10px;padding:8px 13px;cursor:pointer;font-size:13px}
+  .hint{font-size:12px;color:var(--muted)}
+  .panel{display:none;overflow:auto}.panel.show{display:block}
+  .field{margin-bottom:12px}.field label{display:block;font-size:13px;font-weight:600;margin-bottom:4px}
+  .field .fhint{font-size:11px;color:var(--muted);font-weight:400;margin-left:6px}
+  .checkopt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;cursor:pointer}
+  .checkopt input{margin-top:4px}.checkopt.sel{border-color:var(--brand);background:#f0fdfa}
+  .row{display:flex;gap:12px}.row>*{flex:1}
+  .radio{display:inline-flex;gap:6px;align-items:center;margin-right:16px;font-size:13px;cursor:pointer}
+  .fbbox{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px 13px;margin-top:8px;font-size:13px;white-space:pre-wrap;display:none}
+  .fbbox.show{display:block}
+  .stagebar{margin-bottom:14px}
+  .stagebar .top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+  .bar{height:9px;background:#eceff3;border-radius:6px;overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:6px;background:var(--good)}
+  .collapsed i{background:var(--bad)}
+  .pill{font-size:11px;padding:2px 9px;border-radius:10px}
+  .pill.ok{background:#dcfce7;color:#166534}.pill.no{background:#fee2e2;color:#991b1b}.pill.mid{background:#fef3c7;color:#92400e}
+  .kv{font-size:12px;color:var(--muted);margin-top:3px}
+  .gt{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 14px;font-size:13px}
+  .dist{display:flex;gap:6px;margin-top:6px}
+  .dist .d{flex:1;text-align:center;background:#f1f5f9;border-radius:8px;padding:6px 4px;font-size:12px}
+  .overlay{position:fixed;inset:0;background:rgba(15,23,42,.35);display:none;align-items:center;justify-content:center;z-index:20}
+  .overlay.show{display:flex}
+  .spin{width:40px;height:40px;border:4px solid #fff;border-top-color:var(--brand);border-radius:50%;animation:sp 1s linear infinite}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .loadcard{background:#fff;border-radius:14px;padding:26px 34px;text-align:center}
+  .disclaimer{font-size:11px;color:var(--muted);text-align:center;margin-top:14px}
+  .modal{position:fixed;inset:0;background:rgba(15,23,42,.45);display:none;align-items:center;justify-content:center;z-index:30;padding:20px}
+  .modal.show{display:flex}
+  .modalcard{background:#fff;border-radius:16px;max-width:680px;width:100%;max-height:88vh;overflow:auto;box-shadow:0 20px 50px rgba(16,24,40,.3)}
+  .modalhead{position:sticky;top:0;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;padding:18px 24px;display:flex;align-items:center;gap:10px}
+  .modalhead .big{font-size:26px}.modalhead h2{margin:0;font-size:18px}
+  .modalhead .x{margin-left:auto;background:rgba(255,255,255,.2);border:0;color:#fff;width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:16px}
+  .modalbody{padding:20px 24px}
+  .modalbody h4{margin:18px 0 8px;font-size:14px;color:var(--brand)}.modalbody h4:first-child{margin-top:0}
+  .modalbody p,.modalbody li{font-size:13.5px}
+  .role{background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:12px 14px;margin-bottom:6px}
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:6px 0}
+  .flow .fstep{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:9px 5px;font-size:11px;text-align:center}
+  .flow .fstep b{display:block;color:var(--brand);font-size:12px;margin-bottom:3px}
+  .tips{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px 14px}
+  .modalfoot{padding:0 24px 22px;text-align:center}
+  @media(max-width:640px){.flow{grid-template-columns:1fr 1fr 1fr}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">🦵</div>
+    <div>
+      <h1>运动损伤接诊模拟器 <span class="muted small">SportsMed-CDM · 教学系统</span></h1>
+      <div class="sub">你来当医生：问诊 → 写病历 → 下诊断 → 做治疗决策，AI 患者与助理配合，带教老师沿四段链路给你打分</div>
+    </div>
+    <div class="steps" id="steps">
+      <div class="s active" data-k="pick">① 选病例</div>
+      <div class="s" data-k="gather">② 采集</div>
+      <div class="s" data-k="repr">③ 表征</div>
+      <div class="s" data-k="diag">④ 诊断</div>
+      <div class="s" data-k="decide">⑤ 决策</div>
+      <div class="s" data-k="result">⑥ 反馈</div>
+    </div>
+    <button class="ghost" style="margin-left:8px" onclick="openBrief()">📋 任务说明</button>
+  </header>
+
+  <!-- 选病例 -->
+  <div id="view-pick" class="grid">
+    <div class="card">
+      <h3>选择一个病例开始</h3>
+      <div class="caselist" id="caselist"><div class="pad muted small">加载中…</div></div>
+    </div>
+    <div class="card">
+      <h3>先选运行模式，再点左侧病例</h3>
+      <div class="pad">
+        <div class="modeSel">
+          <div class="modeCard on" data-mode="training" onclick="pickMode('training')">
+            <b>🎓 训练模式</b>
+            <p>每完成一步，带教老师给你<b>即时形成性反馈</b>（不打分、只提示改进）；结束后揭示金标准并出完整报告。适合练习。</p>
+          </div>
+          <div class="modeCard" data-mode="assessment" onclick="pickMode('assessment')">
+            <b>📝 测评模式</b>
+            <p>全程<b>无反馈、无提示</b>，像真实考核一样自主完成；仅在最后给出四段能力画像。适合测量真实水平。</p>
+          </div>
+        </div>
+        <div class="hint" style="margin-top:10px">
+          你将扮演接诊医生，在同一个连续会话里完成 <b>采集 → 表征 → 诊断 → 决策</b> 四段一体化流程，
+          信息要靠你主动向患者/助理挖取。建议初学者用「训练模式」+「★ 入门」病例。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主界面 -->
+  <div id="view-main" class="grid" style="display:none">
+    <div>
+      <div class="card" style="margin-bottom:14px">
+        <h3>当前病例</h3>
+        <div class="pad small">
+          <div><b id="caseLabel"></b> <span class="tag" id="modeTag"></span></div>
+          <div class="muted" id="caseBrief" style="margin-top:4px"></div>
+          <div id="stemBox" style="margin-top:8px;background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px"></div>
+          <button class="ghost" style="margin-top:10px;width:100%" onclick="restart()">← 换个病例</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>四个候选治疗方案</h3>
+        <div class="pad" id="optRef"></div>
+      </div>
+    </div>
+
+    <div class="card chatwrap">
+      <div class="toolbar">
+        <span class="small muted">正在问：</span>
+        <div class="seg" id="targetSeg">
+          <button class="on" data-t="patient">🧑 患者（主观/偏好）</button>
+          <button data-t="assistant">🩺 助理（查体·检查）</button>
+        </div>
+        <div style="margin-left:auto" class="small muted">已问 <b id="turnCount">0</b> 轮</div>
+        <button class="primary" onclick="gotoRepr()" style="padding:7px 14px">信息够了，写病历 →</button>
+      </div>
+
+      <!-- ② 采集 -->
+      <div id="stage-gather">
+        <div class="chat" id="chat"></div>
+        <div class="composer">
+          <textarea id="input" placeholder="向患者提问，或向助理请求某项检查…（Enter 发送，Shift+Enter 换行）"></textarea>
+          <button class="primary" id="sendBtn" onclick="send()">发送</button>
+        </div>
+      </div>
+
+      <!-- ③ 表征 -->
+      <div id="stage-repr" class="panel pad">
+        <h3 style="border:0;padding:0;margin-bottom:6px">③ 病历表征（结构化）</h3>
+        <p class="hint">把你采集到的信息整理成结构化病历。系统会评估「已采集到的关键信息是否被正确纳入」。</p>
+        <div class="field"><label>现病史 HPI</label><textarea id="r_hpi" rows="3" placeholder="受伤机制、病程演变、当前主要症状…"></textarea></div>
+        <div class="field"><label>查体</label><textarea id="r_exam" rows="2" placeholder="Lachman、轴移、前抽屉、活动度、积液…（写你从助理处获得的阳性/阴性发现）"></textarea></div>
+        <div class="field"><label>辅助检查</label><textarea id="r_workup" rows="2" placeholder="MRI/X线/功能评分等客观结果的要点"></textarea></div>
+        <div class="field"><label>初步印象 / 鉴别假设</label><textarea id="r_impr" rows="2" placeholder="你此刻形成的临床印象与主要鉴别方向"></textarea></div>
+        <div class="fbbox" id="fb-repr"></div>
+        <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+          <button class="ghost" onclick="backToGather()">← 继续问诊</button>
+          <button class="fb trainingOnly" onclick="askFeedback('represent')">获取即时反馈（老师）</button>
+          <button class="primary" onclick="gotoDiag()">下一步：诊断 →</button>
+        </div>
+      </div>
+
+      <!-- ④ 诊断 -->
+      <div id="stage-diag" class="panel pad">
+        <h3 style="border:0;padding:0;margin-bottom:6px">④ 诊断</h3>
+        <p class="hint">提交你的诊断，可含鉴别诊断与置信度。</p>
+        <div class="field"><label>主诊断</label><input type="text" id="d_primary" placeholder="如：左膝前交叉韧带完全断裂合并多韧带损伤（不稳定膝）"></div>
+        <div class="field"><label>鉴别诊断 <span class="fhint">可写多个</span></label><textarea id="d_diff" rows="2" placeholder="如：单纯 ACL 损伤、半月板损伤、后外侧角损伤…"></textarea></div>
+        <div class="field"><label>置信度：<span id="d_conf_v">70</span>%</label>
+          <input type="range" id="d_conf" min="0" max="100" value="70" style="width:100%" oninput="document.getElementById('d_conf_v').textContent=this.value"></div>
+        <div class="fbbox" id="fb-diag"></div>
+        <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+          <button class="ghost" onclick="gotoRepr()">← 回到表征</button>
+          <button class="fb trainingOnly" onclick="askFeedback('diagnose')">获取即时反馈（老师）</button>
+          <button class="primary" onclick="gotoDecide()">下一步：治疗决策 →</button>
+        </div>
+      </div>
+
+      <!-- ⑤ 决策 -->
+      <div id="stage-decide" class="panel pad">
+        <h3 style="border:0;padding:0;margin-bottom:6px">⑤ 治疗决策</h3>
+        <p class="hint">选择推荐方案（灰区可多选并说明权衡），写理由，并判断本例是否为灰区、是否与患者共同决策。</p>
+        <div id="decideOpts"></div>
+        <div class="field"><label>决策理由</label><textarea id="s_rat" rows="3" placeholder="关键决策触发因素、如何整合患者偏好、为何排除其他方案…"></textarea></div>
+        <div class="row">
+          <div class="field"><label>你判断本例是否为「灰区」？<span class="fhint">无唯一正解、依赖患者偏好</span></label>
+            <label class="radio"><input type="radio" name="gray" value="是">是（灰区）</label>
+            <label class="radio"><input type="radio" name="gray" value="否">否（有明确推荐）</label>
+          </div>
+          <div class="field"><label>是否已与患者共同决策 / 征询偏好？</label>
+            <label class="radio"><input type="radio" name="sdm" value="是">是</label>
+            <label class="radio"><input type="radio" name="sdm" value="否">否</label>
+          </div>
+        </div>
+        <div class="field"><label>共同决策说明 <span class="fhint">你如何向患者呈现选项、征询了哪些偏好</span></label>
+          <textarea id="s_sdm_note" rows="2" placeholder="选填：你与患者沟通选项与偏好的方式"></textarea></div>
+        <div class="fbbox" id="fb-decide"></div>
+        <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+          <button class="ghost" onclick="gotoDiag()">← 回到诊断</button>
+          <button class="fb trainingOnly" onclick="askFeedback('decide')">获取即时反馈（老师）</button>
+          <button class="primary" id="submitBtn" onclick="finish()">提交，生成能力画像 ✓</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ 结果 -->
+  <div id="view-result" style="display:none">
+    <div class="grid">
+      <div class="card">
+        <h3>四段能力画像</h3>
+        <div class="pad" id="stagesBox"></div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:14px">
+          <h3 id="teacherTitle">带教老师总评</h3>
+          <div class="pad">
+            <p id="overallComment"></p>
+            <div class="small"><b>最先塌陷的环节：</b><span id="collapseStage" class="pill no"></span></div>
+            <div id="suggestions" style="margin-top:10px"></div>
+          </div>
+        </div>
+        <div class="card" id="gtCard">
+          <h3>金标准对照</h3>
+          <div class="pad" id="gtBox"></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:16px">
+      <button class="primary" onclick="restart()">再练一个病例 ↻</button>
+    </div>
+  </div>
+
+  <div class="disclaimer">⚠️ 仅用于医学教育与能力测量，非真实临床诊疗建议。患者/助理/带教均由大语言模型扮演，可能出错。每次接诊的完整轨迹已自动保存到 output/ 供教学分析。</div>
+</div>
+
+<!-- 任务说明 -->
+<div class="modal" id="briefModal">
+  <div class="modalcard">
+    <div class="modalhead"><span class="big">🩺</span><h2>你的任务：接诊一位运动损伤患者</h2><button class="x" onclick="closeBrief()">✕</button></div>
+    <div class="modalbody">
+      <div class="role"><b>你的身份：</b>运动医学科接诊医生。<br><b>你要做的：</b>像真实门诊一样，在<b>同一次连续会话</b>里，自己决定问什么、查什么，把一位 <b>ACL 损伤</b>患者从「一句主诉」走到「一个治疗决策」。没有分站、没有答案喂给你。</div>
+      <h4>🔄 一次接诊要走完 5 步</h4>
+      <div class="flow">
+        <div class="fstep"><b>① 采集</b>问诊+查体/检查</div>
+        <div class="fstep"><b>② 表征</b>写结构化病历</div>
+        <div class="fstep"><b>③ 诊断</b>主诊断+鉴别</div>
+        <div class="fstep"><b>④ 决策</b>选 A/B/C/D</div>
+        <div class="fstep"><b>⑤ 反馈</b>四段打分</div>
+      </div>
+      <h4>👥 你面前有两个人，问不同的东西</h4>
+      <ul style="margin:4px 0;padding-left:20px">
+        <li><b style="color:#2563eb">🧑 患者</b>——问<b>主观</b>的：受伤经过、症状、打软腿频率、运动需求、对手术/康复的偏好。（他<b>只答你问到的，不会主动交代关键线索</b>）</li>
+        <li><b style="color:#16a34a">🩺 助理</b>——问<b>客观</b>的：查体（Lachman、轴移、前抽屉）、MRI/X线、化验、功能评分。（<b>你不主动要，他就不给</b>——漏查会被记下来）</li>
+      </ul>
+      <h4>🎓 两种模式</h4>
+      <p style="margin:4px 0"><b>训练模式</b>：每步可点「获取即时反馈」让老师提示你怎么改进；结束揭示金标准。<b>测评模式</b>：全程无反馈，末尾才出报告。</p>
+      <h4>✅ 你会被怎么评价</h4>
+      <p style="margin:4px 0">带教老师对照专家金标准，沿 <b>信息采集 → 病历表征 → 诊断 → 治疗决策</b> 四段分别打分，告诉你<b>最先在哪一环"塌陷"</b>、漏问了哪些关键信息、决策是否落在可接受范围、灰区是否识别、是否做了医患共同决策。目标不是"猜答案"，而是<b>走完一条完整合理的临床思路</b>。</p>
+      <ul class="tips" style="margin:4px 0;padding-left:20px;list-style:none">
+        <li>• 一次只问一个问题，像真实对话一样追问。</li>
+        <li>• 客观数据一定要找<b>助理</b>要，患者不会报影像/查体数值。</li>
+        <li>• 别急着下结论——先把该问的病史、该查的体征覆盖到。</li>
+        <li>• ⚠️ 仅教学用途，AI 可能出错。</li>
+      </ul>
+    </div>
+    <div class="modalfoot"><button class="primary" onclick="closeBrief()">我明白了，开始接诊 →</button></div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay"><div class="loadcard"><div class="spin"></div><p class="muted small" id="loadMsg" style="margin:14px 0 0">处理中…</p></div></div>
+
+<script>
+let SID=null,TARGET="patient",OPTIONS=[],SELECTED=new Set(),TURNS=0,MODE="training";
+
+function show(el,on){document.getElementById(el).style.display=on?'':'none';}
+function overlay(on,msg){document.getElementById('overlay').classList.toggle('show',on);if(msg)document.getElementById('loadMsg').textContent=msg;}
+function setStep(k){const order=['pick','gather','repr','diag','decide','result'];document.querySelectorAll('#steps .s').forEach(s=>{s.classList.remove('active','done');if(order.indexOf(s.dataset.k)<order.indexOf(k))s.classList.add('done');if(s.dataset.k===k)s.classList.add('active');});}
+
+function pickMode(m){MODE=m;document.querySelectorAll('.modeCard').forEach(c=>c.classList.toggle('on',c.dataset.mode===m));}
+
+async function loadCases(){
+  const r=await fetch('/api/cases');const cs=await r.json();
+  const box=document.getElementById('caselist');box.innerHTML='';
+  cs.forEach(c=>{const d=document.createElement('div');d.className='caseitem';
+    d.innerHTML=`<b>${c.label}</b><span class="tag">${c.case_type==='gray'?'灰区':'清晰区'}</span><div class="muted small" style="margin-top:3px">${c.patient_brief}</div><div class="small" style="color:#0f766e;margin-top:2px">${c.difficulty}</div>`;
+    d.onclick=()=>startCase(c.id);box.appendChild(d);});
+}
+
+async function startCase(id){
+  overlay(true,'正在准备病例与患者…');
+  try{
+    const r=await fetch('/api/start',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({case_id:id,mode:MODE})});
+    const d=await r.json();if(d.error){alert(d.error);return;}
+    SID=d.session_id;OPTIONS=d.options;SELECTED.clear();TURNS=0;MODE=d.mode;
+    document.getElementById('caseLabel').textContent=d.case_label;
+    document.getElementById('modeTag').textContent=MODE==='training'?'训练模式':'测评模式';
+    document.getElementById('caseBrief').textContent='患者：'+d.patient_brief;
+    document.getElementById('stemBox').innerHTML=`<b>接诊信息（stem）：</b>${d.stem.age}岁${d.stem.sex}，${d.stem.occupation}。主诉见开场白。`;
+    document.getElementById('turnCount').textContent='0';
+    document.getElementById('optRef').innerHTML=OPTIONS.map(o=>`<div class="opt"><span class="oid">${o.id}</span><b>${o.title}</b><p>${o.desc}</p></div>`).join('');
+    document.getElementById('decideOpts').innerHTML=OPTIONS.map(o=>`<label class="checkopt" data-id="${o.id}"><input type="checkbox" onchange="toggleOpt('${o.id}',this)"><div><b>${o.id}. ${o.title}</b><div class="muted small">${o.desc}</div></div></label>`).join('');
+    ['chat'].forEach(x=>document.getElementById(x).innerHTML='');
+    ['r_hpi','r_exam','r_workup','r_impr','d_primary','d_diff','s_rat','s_sdm_note'].forEach(x=>document.getElementById(x).value='');
+    ['fb-repr','fb-diag','fb-decide'].forEach(x=>document.getElementById(x).classList.remove('show'));
+    // 模式：训练显示反馈按钮，测评隐藏
+    document.querySelectorAll('.trainingOnly').forEach(b=>b.style.display=MODE==='training'?'':'none');
+    addMsg('patient',d.opening,'患者');
+    show('view-pick',false);show('view-main',true);show('view-result',false);
+    backToGather();
+  }catch(e){alert('启动失败：'+e);}finally{overlay(false);}
+}
+
+function addMsg(kind,text,who){
+  const c=document.getElementById('chat');const av={doc:'👨‍⚕️',patient:'🧑',assist:'🩺'}[kind];
+  const m=document.createElement('div');m.className='msg '+kind;
+  m.innerHTML=`<div class="av">${av}</div><div><div class="who">${who}</div><div class="bubble"></div></div>`;
+  m.querySelector('.bubble').textContent=text;c.appendChild(m);c.scrollTop=c.scrollHeight;
+}
+
+document.getElementById('targetSeg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;TARGET=b.dataset.t;
+  document.querySelectorAll('#targetSeg button').forEach(x=>x.classList.toggle('on',x===b));
+  document.getElementById('input').placeholder=TARGET==='assistant'?'向助理请求某项检查，例如：请给我看膝关节 MRI / 做一下 Lachman 试验':'向患者提问，例如：受伤时有没有听到响声？现在打软腿多久一次？';});
+document.getElementById('input').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}});
+
+async function send(){
+  const inp=document.getElementById('input');const text=inp.value.trim();if(!text)return;
+  addMsg('doc',text,'你（医生）');inp.value='';
+  const btn=document.getElementById('sendBtn');btn.disabled=true;
+  const who=TARGET==='assistant'?'assist':'patient';
+  addMsg(who,'…正在回复',TARGET==='assistant'?'助理':'患者');
+  const ph=document.getElementById('chat').lastChild;
+  try{
+    const r=await fetch('/api/message',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({session_id:SID,target:TARGET,text})});
+    const d=await r.json();ph.remove();
+    if(d.error){addMsg(who,'⚠️ '+d.error,TARGET==='assistant'?'助理':'患者');}
+    else{addMsg(d.target==='assistant'?'assist':'patient',d.reply,d.target==='assistant'?'助理':'患者');TURNS++;document.getElementById('turnCount').textContent=TURNS;}
+  }catch(e){ph.remove();addMsg(who,'⚠️ 网络错误：'+e,'系统');}
+  finally{btn.disabled=false;inp.focus();}
+}
+
+function reprPayload(){return{hpi:v('r_hpi'),exam:v('r_exam'),workup:v('r_workup'),impression:v('r_impr')};}
+function diagPayload(){return{primary:v('d_primary'),differentials:v('d_diff'),confidence:v('d_conf')};}
+function decidePayload(){return{options:[...SELECTED],rationale:v('s_rat'),is_gray_judgment:radio('gray'),shared_decision_done:radio('sdm'),shared_decision_note:v('s_sdm_note')};}
+function v(id){return document.getElementById(id).value.trim();}
+function radio(name){const el=document.querySelector(`input[name=${name}]:checked`);return el?el.value:'';}
+
+function backToGather(){show('stage-gather',true);['stage-repr','stage-diag','stage-decide'].forEach(x=>document.getElementById(x).classList.remove('show'));setStep('gather');}
+function showStage(id,step){show('stage-gather',false);['stage-repr','stage-diag','stage-decide'].forEach(x=>document.getElementById(x).classList.toggle('show',x===id));setStep(step);}
+function gotoRepr(){showStage('stage-repr','repr');}
+function gotoDiag(){showStage('stage-diag','diag');}
+function gotoDecide(){showStage('stage-decide','decide');}
+
+function toggleOpt(id,el){const l=el.closest('.checkopt');if(el.checked){SELECTED.add(id);l.classList.add('sel');}else{SELECTED.delete(id);l.classList.remove('sel');}}
+
+async function askFeedback(stage){
+  const payload=stage==='represent'?reprPayload():stage==='diagnose'?diagPayload():decidePayload();
+  const boxId=stage==='represent'?'fb-repr':stage==='diagnose'?'fb-diag':'fb-decide';
+  const box=document.getElementById(boxId);box.textContent='老师正在看…';box.classList.add('show');
+  try{
+    const r=await fetch('/api/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({session_id:SID,stage,payload})});
+    const d=await r.json();box.textContent=d.error?('⚠️ '+d.error):('💬 老师：'+d.feedback);
+  }catch(e){box.textContent='⚠️ '+e;}
+}
+
+async function finish(){
+  if(SELECTED.size===0){alert('请至少选择一个治疗方案');return;}
+  overlay(true,'带教老师正在评阅整次接诊（约 10–30 秒）…');
+  try{
+    const r=await fetch('/api/finish',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({session_id:SID,representation:reprPayload(),diagnosis:diagPayload(),decision:decidePayload()})});
+    const d=await r.json();if(d.error){alert(d.error);return;}renderResult(d);
+  }catch(e){alert('评分失败：'+e);}finally{overlay(false);}
+}
+
+function stageBar(name,st,disclose){
+  if(!st)return `<div class="stagebar"><div class="top"><b>${name}</b><span class="muted">—</span></div><div class="bar"><i style="width:3%"></i></div></div>`;
+  const sc=st.score||0;let extra='';
+  if(disclose){
+    if(st.covered)extra+=`<div class="kv">✓ 问到：${(st.covered||[]).join('、')||'—'}</div>`;
+    if(st.missed&&st.missed.length)extra+=`<div class="kv" style="color:#dc2626">✗ 漏问：${st.missed.join('、')}</div>`;
+    if(st.exam_requests||st.test_economy)extra+=`<div class="kv">🩺 查体请求：${st.exam_requests||'—'} ｜ 检查开立：${st.test_economy||'—'}</div>`;
+    if('chosen_ok' in st)extra+=`<div class="kv">决策命中可接受集合：${st.chosen_ok?'✅ 是':'❌ 否'}${st.gray_recognition?' ｜ 灰区识别：'+st.gray_recognition:''}${st.shared_decision?' ｜ 共同决策：'+st.shared_decision:''}${st.safety?' ｜ 安全性：'+st.safety:''}</div>`;
+  }
+  const cmt=disclose?`<div class="kv">${st.comment||''}</div>`:'';
+  return `<div class="stagebar"><div class="top"><span><b>${name}</b> ${st.collapsed?'<span class="pill no">塌陷</span>':'<span class="pill ok">通过</span>'}</span><span>${sc}</span></div>
+    <div class="bar ${st.collapsed?'collapsed':''}"><i style="width:${Math.max(3,Math.min(100,sc))}%"></i></div>${cmt}${extra}</div>`;
+}
+
+function renderResult(d){
+  const s=d.scoring||{},st=s.stages||{},disclose=!!d.disclose_gt;
+  document.getElementById('stagesBox').innerHTML=stageBar('① 信息采集',st.gathering,disclose)+stageBar('② 病历表征',st.representation,disclose)+stageBar('③ 诊断',st.diagnosis,disclose)+stageBar('④ 治疗决策',st.decision,disclose);
+  document.getElementById('collapseStage').textContent=s.collapse_stage||'无';
+  // 测评模式：不披露 GT、不给反馈评语与建议（PRD：纯测量）
+  document.getElementById('gtCard').style.display=disclose?'':'none';
+  if(!disclose){
+    document.getElementById('teacherTitle').textContent='能力画像小结（测评模式）';
+    document.getElementById('overallComment').innerHTML='<span class="muted small">测评模式仅输出四段得分与塌陷定位，不提供反馈与金标准披露。完整交互轨迹与评分已存档到 output/ 供带教/研究使用；想看逐条反馈与金标准，请用「训练模式」重做本例。</span>';
+    document.getElementById('suggestions').innerHTML='';
+    return;
+  }
+  document.getElementById('teacherTitle').textContent='带教老师总评';
+  document.getElementById('overallComment').textContent=s.overall_comment||(s._raw||'—');
+  document.getElementById('suggestions').innerHTML=(s.top_suggestions||[]).map(x=>`<div class="small">💡 ${x}</div>`).join('');
+  const gt=d.ground_truth||{},dist=gt.expert_decision_distribution||{};
+  const distHtml=Object.keys(dist).map(k=>`<div class="d"><b>${k}</b><br>${Math.round(dist[k]*100)}%</div>`).join('');
+  const unacc=(gt.unacceptable_options||[]).map(u=>`<div class="small" style="margin-top:4px">❌ <b>${u.option_id}</b>：${u.reason}</div>`).join('');
+  let grayLine=`本例类型：<b>${gt.is_gray_zone?'灰区（依赖患者偏好，无唯一解）':'清晰区（有明确推荐）'}</b>`;
+  if(d.gray_recognition_ok!==null&&d.gray_recognition_ok!==undefined)grayLine+=d.gray_recognition_ok?' <span class="pill ok">你识别正确</span>':' <span class="pill no">你识别有误</span>';
+  document.getElementById('gtBox').innerHTML=`<div class="gt">
+    <div>${grayLine}</div>
+    <div style="margin-top:6px">可接受方案：<b style="color:#166534">${(gt.acceptable_options||[]).join('、')}</b> ${d.decision_hit?'<span class="pill ok">你选对了</span>':'<span class="pill no">你的选择不在其中</span>'}</div>
+    <div style="margin-top:6px">专家决策分布：</div><div class="dist">${distHtml}</div>
+    ${unacc}
+    <div style="margin-top:8px" class="muted small">${gt.decision_rationale||''}</div>
+    <div style="margin-top:8px"><b class="small">安全决策最小信息集：</b><span class="small muted">${(gt.minimum_set_cn||[]).join('、')}</span></div>
+  </div>`;
+  show('view-main',false);show('view-result',true);setStep('result');window.scrollTo(0,0);
+}
+
+function restart(){show('view-result',false);show('view-main',false);show('view-pick',true);setStep('pick');}
+function openBrief(){document.getElementById('briefModal').classList.add('show');}
+function closeBrief(){document.getElementById('briefModal').classList.remove('show');}
+document.getElementById('briefModal').addEventListener('click',e=>{if(e.target.id==='briefModal')closeBrief();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBrief();});
+loadCases();openBrief();
+</script>
+</body>
+</html>

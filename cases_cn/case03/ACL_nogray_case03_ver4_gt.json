@@ -1,0 +1,221 @@
+{
+  "item_id": "SCN-01-ACL-nogray-03-ver4",
+  "scenario_id": "SCN-01-ACL",
+  "case_type": "nogray",
+  "variant_code": "ver4",
+  "case_summary_for_grader": "",
+  "S1_information_gathering": {
+    "essential_clinical_variables": [
+      "tear_completeness",
+      "tear_location",
+      "concomitant_meniscal_tear",
+      "concomitant_ligament_injury",
+      "current_functional_instability",
+      "preinjury_tegner_activity_score",
+      "knee_range_of_motion",
+      "time_since_injury_weeks"
+    ],
+    "important_clinical_variables": [
+      "concomitant_cartilage_injury",
+      "occupational_demand",
+      "rehabilitation_access",
+      "surgical_risk_class",
+      "pivot_shift_grade",
+      "skeletal_maturity"
+    ],
+    "supplementary_clinical_variables": [
+      "bmi",
+      "smoking_status",
+      "prior_contralateral_ACL_injury",
+      "graft_choice_preference"
+    ],
+    "essential_preference_variables": [
+      "return_to_pivoting_sport_priority",
+      "activity_modification_acceptance",
+      "rehabilitation_burden_tolerance",
+      "financial_or_insurance_constraint",
+      "surgical_risk_aversion"
+    ],
+    "important_preference_variables": [
+      "long_term_arthritis_concern",
+      "timeline_pressure"
+    ],
+    "recommended_question_phrasings": [
+      "您说如果可能的话想避免手术，这主要是因为担心风险、恢复时间、费用，还是三者都有？",
+      "受伤以来，您的膝盖真的出现过打软腿或突然无力支撑的情况吗？还是说主要是疼痛和弯曲受限让您感到困扰？",
+      "对您来说，重返篮球或其他变向运动有多重要？相比之下，您愿意长期改变运动方式吗？",
+      "在接下来的几个月里，您实际上能接触到什么样的物理治疗或结构化康复资源？",
+      "MRI检查团队关于半月板撕裂是怎么跟您说的？您有没有出现过关节交锁或卡顿的感觉？"
+    ],
+    "minimum_set_for_safe_decision": [
+      "tear_completeness",
+      "concomitant_meniscal_tear",
+      "current_functional_instability",
+      "tear_location",
+      "return_to_pivoting_sport_priority",
+      "activity_modification_acceptance",
+      "financial_or_insurance_constraint",
+      "rehabilitation_burden_tolerance"
+    ]
+  },
+  "S2_representation": {
+    "target_representation": {
+      "patient_archetype": "adult_partial_distal_acl_with_meniscus_tear_low_instability_high_activity_modification_acceptance",
+      "demand_level": "historically_high_but_now_low_desire_for_pivoting_return",
+      "instability_burden": "currently_absent",
+      "surgical_risk_profile": "standard_nontrivial_but_not_high_medical_risk",
+      "rehab_feasibility": "limited",
+      "preference_profile": "cost_sensitive_surgery_cautious_and_accepting_of_activity_change",
+      "decision_region": "nogray_toward_C"
+    },
+    "key_abstractions": [
+      "需明确，这不是典型的年轻患者完全性ACL断裂伴不稳病例；而是远端部分撕裂，目前无功能性不稳，轴移试验为0级。",
+      "切勿仅因既往Tegner评分高就过度加权；当前目标更为关键，该患者重返变向运动的优先级较低，且高度接受永久性活动调整。",
+      "可修复的不稳定半月板撕裂确实相关，但ACL的决策仍不应默认走向重建；半月板问题可能需要单独的骨科治疗规划，而非自动进行ACL手术。",
+      "D选项不适用，因为ACL修复/BEAR技术有明确的适应证限制，在此决策框架下，远端部分撕裂并不符合该选项的指征。",
+      "鉴于患者对康复负担的耐受度低且可及性有限，最合适的路径是结合活动调整的长期非手术治疗，而非以延迟重建为目标的“先康复”路径。",
+      "在给出建议之前，需先将模糊的表述澄清并转化为结构化指标。"
+    ],
+    "conflict_resolution_required": [],
+    "ambiguity_resolution_required": [
+      {
+        "ambiguous_statement": "it feels off sometimes, but not like it fully gives out or anything, mostly just sore and awkward",
+        "resolved_value": "current_functional_instability = none",
+        "resolution_method": "Separate instability from pain with a structured probe: has it actually buckled, given way, or shifted unexpectedly during walking, stairs, or turns?"
+      },
+      {
+        "ambiguous_statement": "basketball was something I did, you know, here and there, but I’m not married to it",
+        "resolved_value": "return_to_pivoting_sport_priority = low",
+        "resolution_method": "Use a hypothetical or forced choice: if avoiding basketball permanently reduced the chance of surgery, would that be acceptable to you?"
+      },
+      {
+        "ambiguous_statement": "if I have to switch things up and stay away from certain moves, I mean, I can probably do that",
+        "resolved_value": "activity_modification_acceptance = high",
+        "resolution_method": "Reflect back concretely: it sounds like you are willing to permanently avoid pivoting sports and change how you exercise if that keeps you functioning."
+      },
+      {
+        "ambiguous_statement": "all the appointments and exercises and all that, with work and my kid, it gets to be a lot",
+        "resolved_value": "rehabilitation_burden_tolerance = low",
+        "resolution_method": "Make the burden specific: if rehab meant frequent PT visits plus home exercises for months, how realistic would that be for you?"
+      },
+      {
+        "ambiguous_statement": "money-wise this would hit pretty hard, between the deductible and being out of work and everything",
+        "resolved_value": "financial_or_insurance_constraint = high",
+        "resolution_method": "Clarify magnitude directly: would surgery and recovery create major financial strain or only modest inconvenience?"
+      },
+      {
+        "ambiguous_statement": "I’m not against surgery or anything, I just don’t want to jump into it unless there’s a real reason",
+        "resolved_value": "surgical_risk_aversion = moderate",
+        "resolution_method": "Distinguish reluctance from refusal: are you broadly unwilling to have surgery, or open to it if instability or function clearly justify it?"
+      },
+      {
+        "ambiguous_statement": "they told me there’s a meniscus tear too, like one of those maybe-fixable ones, I think",
+        "resolved_value": "concomitant_meniscal_tear = repairable_unstable_tear",
+        "resolution_method": "Confirm against MRI description or ask what he was told about whether the meniscus tear was stable versus one that might need repair."
+      }
+    ],
+    "expected_uncertainty_acknowledgements": []
+  },
+  "S3_decision": {
+    "is_gray_zone": false,
+    "acceptable_options": [
+      "C"
+    ],
+    "unacceptable_options": [
+      {
+        "option_id": "A",
+        "reason": "本例不支持早期ACL重建，因为ACL损伤为部分性而非完全性，目前无功能性不稳，患者重返变向运动的意愿较低，高度接受活动调整，且经济负担较重。"
+      },
+      {
+        "option_id": "B",
+        "reason": "“先康复、可选延迟重建”的路径在当前无关节不稳、重建价值低、对长期结构化康复耐受度低、且偏好明确指向永久性活动调整的情况下，过度强调了未来的ACL手术。"
+      },
+      {
+        "option_id": "D",
+        "reason": "ACL修复/BEAR技术是适应证受限的选项，仅适用于急性近端1/3撕裂；本例为远端1/3部分撕裂，不符合该框架下的修复指征。"
+      }
+    ],
+    "conditional_recommendation_ranking": [
+      {
+        "condition": "当前病例：远端部分撕裂，无功能性不稳，重返变向运动优先级低，活动调整接受度高，经济限制高",
+        "ranking": [
+          "C",
+          "B",
+          "A",
+          "D"
+        ]
+      },
+      {
+        "condition": "若经康复和活动调整后仍反复出现打软腿，或日后重返变向运动的目标再次提高",
+        "ranking": [
+          "B",
+          "A",
+          "C",
+          "D"
+        ]
+      }
+    ],
+    "key_decision_triggers": [
+      "tear_completeness (partial)",
+      "tear_location (distal_third)",
+      "current_functional_instability (none)",
+      "pivot_shift_grade (0)",
+      "return_to_pivoting_sport_priority (low)",
+      "activity_modification_acceptance (high)",
+      "financial_or_insurance_constraint (high)",
+      "rehabilitation_access (limited)"
+    ],
+    "expert_decision_distribution": {
+      "A": 0.03,
+      "B": 0.09,
+      "C": 0.86,
+      "D": 0.02
+    },
+    "decision_rationale": "本例不属于前交叉韧带（ACL）重建的“灰色地带”，因为患者不具备促使早期手术或延迟重建的核心特征：撕裂为部分性，轴移试验为0级，且目前无功能性不稳。尽管他过去活动量大，但现在重返变向运动的优先级较低，且高度愿意永久调整活动方式，这与明确的非手术治疗高度契合。他缺乏接受监督下康复的条件且经济负担较重，进一步降低了手术以及“先康复后视情况手术”路径的吸引力。临床上可修复的不稳定半月板撕裂确实重要，但在本ACL决策框架内，在无关节不稳且患者强烈倾向非手术治疗的情况下，它不足以证明进行ACL重建的合理性。",
+    "minimum_disclosure_to_patient": [
+      "鉴于这是部分性ACL撕裂，且您的膝盖目前没有出现打软腿的情况，ACL手术并非首选推荐方案。",
+      "由于您愿意放弃变向运动，且重返此类运动的优先级较低，非手术治疗计划非常符合您的目标。",
+      "手术并不能消除关节炎风险，尤其是半月板和软骨已经显示出一定损伤的情况下。",
+      "如果日后您的膝盖开始出现打软腿，或者您的目标发生变化，我们可以届时重新评估重建手术。",
+      "半月板撕裂仍需后续跟进讨论，因为它可能会独立于ACL决策之外，影响症状和治疗规划。",
+      "此处不适用ACL修复/BEAR技术，因为您的撕裂模式不符合该选项的适应证。"
+    ]
+  },
+  "capability_checks": {
+    "biases_to_correct": [
+      "患者可能认为任何ACL撕裂合并半月板撕裂都意味着必须手术；临床医生应解释，无关节不稳的部分性ACL撕裂通常可采用非手术治疗。",
+      "患者可能担心手术是预防关节炎的唯一途径；临床医生应解释，重建手术并不能消除远期骨关节炎的风险。"
+    ],
+    "ambiguities_to_handle": [
+      "需将疼痛和屈曲受限与真正的关节不稳区分开来。",
+      "当患者当前目标已改变时，避免将既往的高活动水平过度解读为当前重建手术的指征。"
+    ],
+    "preferences_to_integrate": [
+      "重返变向运动优先级（低）",
+      "活动调整接受度（高）",
+      "经济或保险限制（高）",
+      "康复负担耐受度（低）",
+      "远期关节炎担忧（高）"
+    ]
+  },
+  "scoring_hints": {
+    "score_S1_on": [
+      "coverage_of_essential",
+      "coverage_of_important",
+      "preference_elicitation_completeness",
+      "question_efficiency"
+    ],
+    "score_S2_on": [
+      "abstraction_accuracy",
+      "conflict_detection",
+      "ambiguity_calibration",
+      "tradeoff_articulation"
+    ],
+    "score_S3_on": [
+      "acceptable_set_match",
+      "unacceptable_set_avoidance",
+      "ranking_alignment_with_expert_distribution",
+      "preference_responsiveness"
+    ]
+  }
+}

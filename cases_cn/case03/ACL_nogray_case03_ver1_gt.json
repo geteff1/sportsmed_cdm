@@ -1,0 +1,191 @@
+{
+  "item_id": "SCN-01-ACL-nogray-03-ver1",
+  "scenario_id": "SCN-01-ACL",
+  "case_type": "nogray",
+  "variant_code": "ver1",
+  "case_summary_for_grader": "",
+  "S1_information_gathering": {
+    "essential_clinical_variables": [
+      "tear_completeness",
+      "tear_location",
+      "concomitant_meniscal_tear",
+      "concomitant_ligament_injury",
+      "current_functional_instability",
+      "preinjury_tegner_activity_score",
+      "knee_range_of_motion",
+      "time_since_injury_weeks"
+    ],
+    "important_clinical_variables": [
+      "concomitant_cartilage_injury",
+      "occupational_demand",
+      "rehabilitation_access",
+      "surgical_risk_class",
+      "pivot_shift_grade",
+      "skeletal_maturity"
+    ],
+    "supplementary_clinical_variables": [
+      "bmi",
+      "smoking_status",
+      "prior_contralateral_ACL_injury",
+      "graft_choice_preference"
+    ],
+    "essential_preference_variables": [
+      "return_to_pivoting_sport_priority",
+      "activity_modification_acceptance",
+      "rehabilitation_burden_tolerance",
+      "financial_or_insurance_constraint",
+      "surgical_risk_aversion"
+    ],
+    "important_preference_variables": [
+      "long_term_arthritis_concern",
+      "timeline_pressure"
+    ],
+    "recommended_question_phrasings": [
+      "您说如果可能的话想避免手术，这主要是出于对手术风险、恢复时间、费用的考虑，还是三者都有？",
+      "受伤以来，您的膝盖真的出现过打软腿或突然无力支撑的情况吗？还是说主要是疼痛和弯曲受限让您更困扰？",
+      "对您来说，重返篮球或其他急停变向运动有多重要？相比之下，您愿意长期改变运动方式吗？",
+      "在接下来的几个月里，您实际上能接触到什么样的物理治疗或结构化康复资源？",
+      "做核磁共振的医生是怎么跟您说半月板撕裂的情况的？您有没有出现过关节交锁或卡顿的感觉？"
+    ],
+    "minimum_set_for_safe_decision": [
+      "tear_completeness",
+      "concomitant_meniscal_tear",
+      "current_functional_instability",
+      "tear_location",
+      "return_to_pivoting_sport_priority",
+      "activity_modification_acceptance",
+      "financial_or_insurance_constraint",
+      "rehabilitation_burden_tolerance"
+    ]
+  },
+  "S2_representation": {
+    "target_representation": {
+      "patient_archetype": "adult_partial_distal_acl_with_meniscus_tear_low_instability_high_activity_modification_acceptance",
+      "demand_level": "historically_high_but_now_low_desire_for_pivoting_return",
+      "instability_burden": "currently_absent",
+      "surgical_risk_profile": "standard_nontrivial_but_not_high_medical_risk",
+      "rehab_feasibility": "limited",
+      "preference_profile": "cost_sensitive_surgery_cautious_and_accepting_of_activity_change",
+      "decision_region": "nogray_toward_C"
+    },
+    "key_abstractions": [
+      "需明确，这并非典型的年轻患者完全性ACL断裂伴不稳病例；此为远端部分撕裂，目前无功能性不稳，轴移试验为0级。",
+      "切勿仅因既往Tegner评分高就过度加权；当前目标更为关键，该患者重返急停变向运动的优先级较低，且高度接受永久性活动调整。",
+      "可修复的不稳定半月板撕裂确实相关，但ACL的决策仍不应默认走向重建；半月板问题可能需要单独的骨科治疗规划，而非自动进行ACL手术。",
+      "D选项不适用，因为ACL修复/BEAR技术具有特定适应证限制，在此决策框架下，远端部分撕裂并非其适应证。",
+      "鉴于患者对康复负担的耐受度低且资源有限，最合适的路径是长期非手术治疗并调整活动方式，而非以延迟重建为目标的“先康复”路径。"
+    ],
+    "conflict_resolution_required": [
+      "应以患者当前偏好和现有不稳状况为核心，化解既往高活动量与当前低重返变向运动优先级之间的表面矛盾。"
+    ],
+    "ambiguity_resolution_required": [
+      "需确认无关节不稳是日常生活中的真实情况，而非患者急于重返赛场而刻意隐瞒。"
+    ],
+    "expected_uncertainty_acknowledgements": [
+      "半月板撕裂可能需要独立随访，并可能影响症状管理，但在无关节不稳且变向运动目标较低的情况下，它并不自动意味着必须进行ACL重建。",
+      "无论是否进行ACL手术，半月板损伤和软骨改变均会影响长期关节炎风险。"
+    ]
+  },
+  "S3_decision": {
+    "is_gray_zone": false,
+    "acceptable_options": [
+      "C"
+    ],
+    "unacceptable_options": [
+      {
+        "option_id": "A",
+        "reason": "此处不支持早期ACL重建，因为ACL损伤为部分性而非完全性，目前无功能性不稳，患者重返急停变向运动的意愿低，高度接受活动调整，且经济负担较重。"
+      },
+      {
+        "option_id": "B",
+        "reason": "在无当前不稳、重建价值低、对长期结构化康复耐受度低，且偏好明确指向永久性活动调整的情况下，“先康复、可选延迟重建”的路径过度强调了未来的ACL手术。"
+      },
+      {
+        "option_id": "D",
+        "reason": "ACL修复/BEAR技术具有特定适应证限制，仅适用于急性近端1/3撕裂；本例为远端1/3部分撕裂，不符合该框架下的修复适应证。"
+      }
+    ],
+    "conditional_recommendation_ranking": [
+      {
+        "condition": "当前病例：远端部分撕裂，无功能性不稳，重返急停变向运动优先级低，活动调整接受度高，经济限制高",
+        "ranking": [
+          "C",
+          "B",
+          "A",
+          "D"
+        ]
+      },
+      {
+        "condition": "若经康复和活动调整后仍反复出现打软腿，或日后重返急停变向运动的目标再次提高",
+        "ranking": [
+          "B",
+          "A",
+          "C",
+          "D"
+        ]
+      }
+    ],
+    "key_decision_triggers": [
+      "tear_completeness (partial)",
+      "tear_location (distal_third)",
+      "current_functional_instability (none)",
+      "pivot_shift_grade (0)",
+      "return_to_pivoting_sport_priority (low)",
+      "activity_modification_acceptance (high)",
+      "financial_or_insurance_constraint (high)",
+      "rehabilitation_access (limited)"
+    ],
+    "expert_decision_distribution": {
+      "A": 0.03,
+      "B": 0.09,
+      "C": 0.86,
+      "D": 0.02
+    },
+    "decision_rationale": "本病例不属于前交叉韧带（ACL）重建的“灰色地带”，因为患者不具备促使早期手术或延迟重建的核心特征：撕裂为部分性，轴移试验为0级，且目前无功能性不稳。尽管患者既往活动量大，但目前重返急停变向运动的优先级较低，且高度愿意永久调整活动方式，这与明确的非手术治疗高度契合。其接受监督康复的机会有限且经济负担较重，进一步降低了手术以及“先康复后视情况手术”路径的吸引力。临床上可修复的不稳定半月板撕裂确实重要，但在本ACL决策框架内，在无关节不稳且患者强烈倾向非手术治疗的情况下，它不足以证明进行ACL重建的合理性。",
+    "minimum_disclosure_to_patient": [
+      "鉴于这是部分性ACL撕裂，且您的膝盖目前没有出现打软腿的情况，ACL手术并非首选推荐方案。",
+      "既然您愿意放弃急停变向运动，且重返此类运动的优先级不高，那么非手术治疗计划非常符合您的目标。",
+      "手术并不能消除关节炎风险，尤其是半月板和软骨已经出现一定损伤的情况下。",
+      "如果以后您的膝盖开始出现打软腿，或者您的目标发生变化，我们可以届时再重新评估重建手术。",
+      "半月板撕裂仍需后续跟进讨论，因为它可能会独立于ACL决策之外，影响症状和治疗规划。",
+      "ACL修复/BEAR技术在此并不适用，因为您的撕裂类型不符合该方案的适应证。"
+    ]
+  },
+  "capability_checks": {
+    "biases_to_correct": [
+      "患者可能认为任何ACL撕裂合并半月板撕裂都自动意味着需要手术；医生应解释，无关节不稳的部分性ACL撕裂通常可采用非手术治疗。",
+      "患者可能担心手术是预防关节炎的唯一途径；医生应解释，重建手术并不能消除长期骨关节炎的风险。"
+    ],
+    "ambiguities_to_handle": [
+      "需将疼痛和屈曲受限与真正的关节不稳区分开来。",
+      "当患者当前目标已改变时，避免将既往的高活动水平过度解读为当前重建手术的指征。"
+    ],
+    "preferences_to_integrate": [
+      "重返急停变向运动优先级（低）",
+      "活动调整接受度（高）",
+      "经济或保险限制（高）",
+      "康复负担耐受度（低）",
+      "长期关节炎担忧（高）"
+    ]
+  },
+  "scoring_hints": {
+    "score_S1_on": [
+      "coverage_of_essential",
+      "coverage_of_important",
+      "preference_elicitation_completeness",
+      "question_efficiency"
+    ],
+    "score_S2_on": [
+      "abstraction_accuracy",
+      "conflict_detection",
+      "ambiguity_calibration",
+      "tradeoff_articulation"
+    ],
+    "score_S3_on": [
+      "acceptable_set_match",
+      "unacceptable_set_avoidance",
+      "ranking_alignment_with_expert_distribution",
+      "preference_responsiveness"
+    ]
+  }
+}

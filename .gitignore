@@ -1,0 +1,7 @@
+# 密钥不进代码库：线上用环境变量 LLM_API_KEY
+config.json
+
+__pycache__/
+*.pyc
+output/
+cases_cn_build.log

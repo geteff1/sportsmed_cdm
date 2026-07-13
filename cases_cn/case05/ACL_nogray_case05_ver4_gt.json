@@ -1,0 +1,188 @@
+{
+  "item_id": "SCN-01-ACL-nogray-05-ver4",
+  "scenario_id": "SCN-01-ACL",
+  "case_type": "nogray",
+  "variant_code": "ver4",
+  "case_summary_for_grader": "",
+  "S1_information_gathering": {
+    "essential_clinical_variables": [
+      "tear_completeness",
+      "tear_location",
+      "concomitant_meniscal_tear",
+      "concomitant_ligament_injury",
+      "current_functional_instability",
+      "knee_range_of_motion",
+      "time_since_injury_weeks",
+      "surgical_risk_class",
+      "diabetes_or_immune_compromise"
+    ],
+    "important_clinical_variables": [
+      "pivot_shift_grade",
+      "preinjury_tegner_activity_score",
+      "occupational_demand",
+      "concomitant_cartilage_injury",
+      "rehabilitation_access",
+      "smoking_status",
+      "prior_contralateral_ACL_injury",
+      "graft_choice_preference"
+    ],
+    "supplementary_clinical_variables": [
+      "age",
+      "skeletal_maturity",
+      "bmi"
+    ],
+    "essential_preference_variables": [
+      "surgical_risk_aversion",
+      "activity_modification_acceptance",
+      "return_to_pivoting_sport_priority"
+    ],
+    "important_preference_variables": [
+      "rehabilitation_burden_tolerance",
+      "financial_or_insurance_constraint",
+      "long_term_arthritis_concern",
+      "timeline_pressure"
+    ],
+    "recommended_question_phrasings": [
+      "核磁共振或医生具体是怎么说的？是只有前交叉韧带受伤，还是其他韧带和半月板也受累？",
+      "即使经过治疗，膝盖在什么时候还是觉得不稳——比如转身、上下楼梯、爬梯子或走不平的路时？",
+      "有人告诉过你半月板撕裂能不能修复吗？这会不会改变治疗方案？",
+      "有没有什么基础疾病可能会影响手术或伤口愈合，比如糖尿病或吸烟？",
+      "如果因为合并损伤建议手术，跟继续只做康复相比，你是什么想法？"
+    ],
+    "minimum_set_for_safe_decision": [
+      "concomitant_ligament_injury",
+      "concomitant_meniscal_tear",
+      "tear_location",
+      "tear_completeness",
+      "current_functional_instability",
+      "surgical_risk_class",
+      "diabetes_or_immune_compromise",
+      "smoking_status"
+    ]
+  },
+  "S2_representation": {
+    "target_representation": {
+      "patient_archetype": "young_adult_structurally_complex_acl_pattern_with_multiligament_injury_and_irreparable_meniscus",
+      "demand_level": "moderate_activity_with_light_manual_work",
+      "instability_burden": "clinically_significant_despite_behavioral_compensation",
+      "surgical_risk_profile": "elevated_medical_risk_but_not_a_structural_reason_to_avoid_needed_surgery",
+      "rehab_feasibility": "high_but_insufficient_as_definitive_management",
+      "preference_profile": "low_surgical_aversion_with_low_activity_modification_acceptance",
+      "decision_region": "nogray_tip_to_A_due_to_nonisolated_structural_pathology"
+    },
+    "key_abstractions": [
+      "需认识到，这并非标准的单纯性完全性前交叉韧带撕裂的“灰色地带”决策；多韧带损伤和不可修复的半月板病理改变从根本上改变了治疗逻辑。",
+      "推断出“康复优先”（B）不适合作为明确的初始策略，因为结构不稳和合并损伤已需要手术稳定。",
+      "需认识到选项D在解剖学上不适用，因为前交叉韧带修复/BEAR技术适用于近端三分之一撕裂，而本例损伤位于胫骨侧。",
+      "需将糖尿病和吸烟导致的围手术期风险升高与手术禁忌症区分开来；当手术在结构上具有指征时，这些因素要求的是风险优化，而非默认回避。",
+      "需理解在此标准下，选项A作为早期基于前交叉韧带重建的手术稳定的最接近标签，尽管现实中的多韧带手术可能超越单纯的前交叉韧带重建。"
+    ],
+    "conflict_resolution_required": [],
+    "ambiguity_resolution_required": [
+      "通过认识到患者已自我限制变向活动，来解释其仅主诉“偶尔”不稳与查体显示严重客观不稳之间的表面矛盾。"
+    ],
+    "expected_uncertainty_acknowledgements": [
+      "需承认糖尿病和吸烟会增加并发症风险且应予以优化，但这并不意味着在多韧带损伤伴不可修复半月板损伤的膝关节中，“康复优先”可等同于手术。",
+      "需承认选项标签相对于现实中的多韧带手术规划有所简化，且选项A是该标准下对推荐手术路径的最接近表述。"
+    ]
+  },
+  "S3_decision": {
+    "is_gray_zone": false,
+    "acceptable_options": [
+      "A"
+    ],
+    "unacceptable_options": [
+      {
+        "option_id": "B",
+        "reason": "“康复优先并可选延迟重建”并不合适，因为患者存在多韧带不稳合并不可修复的半月板撕裂，需要手术稳定，而非尝试单纯康复。"
+      },
+      {
+        "option_id": "C",
+        "reason": "明确的非手术治疗将导致严重的结构不稳得不到处理，且与患者不愿永久性改变活动的低意愿严重不符。"
+      },
+      {
+        "option_id": "D",
+        "reason": "前交叉韧带修复/BEAR技术仅适用于组织质量良好的近端三分之一撕裂；本例为胫骨撕脱型部分撕裂，并非近端修复的适应证。"
+      }
+    ],
+    "conditional_recommendation_ranking": [
+      {
+        "condition": "当前病例：多韧带损伤合并不可修复的半月板撕裂，尽管经过康复仍存在严重客观不稳",
+        "ranking": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      {
+        "condition": "若不存在合并的韧带损伤和不可修复的半月板病理改变，且这确实是功能良好的单纯性部分前交叉韧带撕裂",
+        "ranking": [
+          "B",
+          "A",
+          "C",
+          "D"
+        ]
+      }
+    ],
+    "key_decision_triggers": [
+      "concomitant_ligament_injury (multiligament)",
+      "concomitant_meniscal_tear (irreparable_tear)",
+      "pivot_shift_grade (3+)",
+      "tear_location (tibial_avulsion, therefore not proximal repair candidate)",
+      "current_functional_instability (persistent despite rehab)",
+      "perioperative modifiers to optimize but not primary choice-flippers: smoking_status, diabetes_or_immune_compromise, surgical_risk_class"
+    ],
+    "expert_decision_distribution": {
+      "A": 0.9,
+      "B": 0.06,
+      "C": 0.02,
+      "D": 0.02
+    },
+    "decision_rationale": "本病例客观上倾向于早期手术治疗，因为它并非单纯的偏好敏感型前交叉韧带（ACL）撕裂。决定性特征包括多韧带损伤模式、查体显示严重客观不稳以及不可修复的半月板撕裂，这些因素均使得单纯康复或“康复优先”的延迟策略在结构上不足。在此标准下，选项A最接近所需的治疗路径，因为它涵盖了基于早期前交叉韧带重建的手术稳定，尽管现实中的多韧带手术可能涉及超越单纯前交叉韧带的更广泛修复或重建。尽管患者因糖尿病和吸烟导致围手术期风险升高，但其手术风险厌恶程度较低，这些因素提示应优化风险，而非回避必要的稳定手术。选项D因撕裂部位被排除，选项C将导致伴有相关病理改变的不稳膝关节得不到治疗。",
+    "minimum_disclosure_to_patient": [
+      "你的情况不同于单纯的孤立性前交叉韧带撕裂，因为还合并了其他韧带损伤和半月板损伤。",
+      "正因为这种合并的结构损伤，手术不仅是为了更快重返运动，更是为了恰当稳定膝关节的主要方式。",
+      "被描述为不可修复的半月板损伤以及多韧带不稳，使得“康复优先”的尝试在此并不合适。",
+      "你的糖尿病和吸烟确实会增加并发症风险，因此术前需要对这些因素进行优化控制。",
+      "前交叉韧带修复/BEAR技术不适合你的撕裂模式和部位。",
+      "即使做了手术，术后你仍然需要进行大量的康复训练。"
+    ]
+  },
+  "capability_checks": {
+    "biases_to_correct": [
+      "患者可能会问撕裂的前交叉韧带能否随时间自行愈合；医生应解释，在某些单纯性前交叉韧带损伤病例中，结构化康复可以起到代偿作用，但本例的合并损伤模式不同，仍指向手术治疗。",
+      "患者可能认为手术能“解决一切”，而忽视糖尿病和吸烟相关的愈合风险；医生应在结构指征与现实的围手术期宣教之间取得平衡。"
+    ],
+    "ambiguities_to_handle": [
+      "患者低估了不稳症状，因为他已经停止了变向动作并改变了运动模式。",
+      "仅存在中等程度的运动优先级可能会误导模型偏离手术建议，如果该模型未能考虑到非孤立性结构病理改变的话。"
+    ],
+    "preferences_to_integrate": [
+      "手术风险厌恶程度（低）",
+      "活动调整接受度（低）",
+      "经济或保险限制（中等）",
+      "重返变向类运动优先级（中等）"
+    ]
+  },
+  "scoring_hints": {
+    "score_S1_on": [
+      "coverage_of_essential",
+      "coverage_of_important",
+      "preference_elicitation_completeness",
+      "question_efficiency"
+    ],
+    "score_S2_on": [
+      "abstraction_accuracy",
+      "conflict_detection",
+      "ambiguity_calibration",
+      "tradeoff_articulation"
+    ],
+    "score_S3_on": [
+      "acceptable_set_match",
+      "unacceptable_set_avoidance",
+      "ranking_alignment_with_expert_distribution",
+      "preference_responsiveness"
+    ]
+  }
+}

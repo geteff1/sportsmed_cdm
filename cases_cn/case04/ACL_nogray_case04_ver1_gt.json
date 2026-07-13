@@ -1,0 +1,197 @@
+{
+  "item_id": "SCN-01-ACL-nogray-04-ver1",
+  "scenario_id": "SCN-01-ACL",
+  "case_type": "nogray",
+  "variant_code": "ver1",
+  "case_summary_for_grader": "",
+  "S1_information_gathering": {
+    "essential_clinical_variables": [
+      "tear_completeness",
+      "tear_location",
+      "time_since_injury_weeks",
+      "concomitant_meniscal_tear",
+      "concomitant_ligament_injury",
+      "surgical_risk_class",
+      "preinjury_tegner_activity_score",
+      "current_functional_instability",
+      "rehabilitation_access"
+    ],
+    "important_clinical_variables": [
+      "concomitant_cartilage_injury",
+      "knee_range_of_motion",
+      "smoking_status",
+      "occupational_demand",
+      "graft_choice_preference"
+    ],
+    "supplementary_clinical_variables": [
+      "bmi",
+      "prior_contralateral_ACL_injury",
+      "pivot_shift_grade",
+      "diabetes_or_immune_compromise"
+    ],
+    "essential_preference_variables": [
+      "return_to_pivoting_sport_priority",
+      "surgical_risk_aversion",
+      "rehabilitation_burden_tolerance",
+      "long_term_arthritis_concern"
+    ],
+    "important_preference_variables": [
+      "activity_modification_acceptance",
+      "timeline_pressure",
+      "financial_or_insurance_constraint"
+    ],
+    "recommended_question_phrasings": [
+      "受伤前您实际从事哪些运动或需要转体/变向的活动？频率如何？",
+      "您是否出现过膝盖打软腿的情况？还是说受伤后您主要是在避免扭转和急停变向动作？",
+      "受伤具体是什么时候？到目前为止您做了哪些康复训练？",
+      "有没有人跟您解释过半月板撕裂是否可以缝合修复，以及是否还有其他韧带也受伤了？",
+      "您目前最担心的是什么——是手术本身、无法恢复运动，还是关节炎等长期损伤？"
+    ],
+    "minimum_set_for_safe_decision": [
+      "tear_location",
+      "time_since_injury_weeks",
+      "concomitant_ligament_injury",
+      "concomitant_meniscal_tear",
+      "surgical_risk_class",
+      "preinjury_tegner_activity_score",
+      "return_to_pivoting_sport_priority"
+    ]
+  },
+  "S2_representation": {
+    "target_representation": {
+      "patient_archetype": "chronic_proximal_complete_ACL_with_multiligament_injury_irreparable_meniscus_and_high_surgical_risk",
+      "demand_level": "low_actual_preinjury_demand_despite_stated_high_desire_for_pivoting_return",
+      "instability_burden": "activity_contingent_instability_but_little_straight_line_daily_life_instability_due_to_self_restriction",
+      "surgical_risk_profile": "high",
+      "rehab_feasibility": "limited",
+      "preference_profile": "arthritis_concerned_and_interested_in_repair_but_not_ideal_candidate",
+      "decision_region": "nogray_away_from_D_and_away_from_early_reconstruction_toward_nonrepair_nonoperative_pathway"
+    },
+    "key_abstractions": [
+      "需明确：仅凭撕裂位于近端并不能使BEAR植入物或一期修复术成为合适选择；慢性期、组织质量差及多韧带损伤已排除选项D。",
+      "需识别：患者自述对恢复转体运动的高优先级，与其客观上较低的伤前活动水平以及日常直线活动中缺乏明显不稳相矛盾。",
+      "需明确：较高的围手术期风险（ASA III级或以上、吸烟、合并症）会显著提高低需求患者接受择期重建手术的门槛。",
+      "需理解：多韧带损伤合并不可修复的半月板损伤使该病例在临床上具有重要意义，但这并不能使选项D重新成为可行选择。",
+      "需结合背景解读pivot-shift试验阴性（0级）及日常不稳受限：这反映的是慢性期活动回避与肌肉保护性代偿，而非ACL已愈合正常。"
+    ],
+    "conflict_resolution_required": [
+      "通过将建议建立在患者实际生活方式与已证实的功能需求基础上，化解其自述的高转体运动恢复优先级与客观较低的伤前Tegner活动评分之间的矛盾。"
+    ],
+    "ambiguity_resolution_required": [
+      "需澄清：日常缺乏频繁打软腿并不能证明膝关节稳定，因为患者已停止转体类活动。",
+      "需澄清：“近端”撕裂位置不能凌驾于修复术的慢性期与组织质量禁忌证之上。"
+    ],
+    "expected_uncertainty_acknowledgements": [
+      "临床医生应明确：在此类低需求特定情况下，关节炎风险更多受初始损伤模式及半月板损伤影响，而非单纯取决于是否选择延期或不进行ACL重建。",
+      "临床医生应明确：若结构化康复后出现具有临床意义的不稳，仍可于后期重新评估重建手术。"
+    ]
+  },
+  "S3_decision": {
+    "is_gray_zone": false,
+    "acceptable_options": {
+      "always_acceptable": [
+        "C"
+      ],
+      "conditionally_acceptable": {
+        "B": "Acceptable only as a contingency pathway if the patient first undertakes structured rehabilitation and later has persistent or recurrent function-limiting instability with desired activities; it is not the preferred intended current plan."
+      },
+      "typically_unacceptable": {
+        "A": "Early ACL reconstruction is poorly aligned with low actual preinjury demand, only activity-contingent instability, limited rehab access, smoking, and ASA III or higher perioperative risk; the current risk-benefit balance is unfavorable.",
+        "D": "ACL repair/BEAR is inappropriate because the tear is chronic at 24 weeks, tissue quality is poor, and associated multiligament injury places the case outside context-restricted repair indications despite proximal location."
+      }
+    },
+    "unacceptable_options": [
+      {
+        "option_id": "A",
+        "reason": "早期ACL重建与患者较低的伤前实际需求、仅表现为活动依赖性不稳、康复条件有限、吸烟以及ASA III级或以上的围手术期风险严重不符；目前风险收益比不佳。"
+      },
+      {
+        "option_id": "D",
+        "reason": "ACL修复/BEAR因处于慢性期（伤后24周）、慢性组织质量差及多韧带损伤而属禁忌；仅凭近端撕裂位置不足以支持该方案。"
+      }
+    ],
+    "conditional_recommendation_ranking": [
+      {
+        "condition": "当前病例：伤后24周的慢性近端ACL撕裂，合并多韧带损伤、不可修复的半月板损伤、ASA III级或以上风险、伤前实际需求较低，且因自行限制活动仅表现为活动依赖性不稳",
+        "ranking": [
+          "C",
+          "B",
+          "A",
+          "D"
+        ]
+      },
+      {
+        "condition": "若患者完成结构化康复后，尽管已优化治疗，但在进行期望的高需求活动时仍出现反复打软腿",
+        "ranking": [
+          "B",
+          "C",
+          "A",
+          "D"
+        ],
+        "note": "Delayed reconstruction could then be reconsidered as a fallback, but repair/BEAR would still remain inappropriate."
+      }
+    ],
+    "key_decision_triggers": [
+      "tear_location",
+      "time_since_injury_weeks",
+      "repair_tissue_quality_or_repair_eligibility",
+      "concomitant_ligament_injury",
+      "concomitant_meniscal_tear",
+      "surgical_risk_class",
+      "preinjury_tegner_activity_score",
+      "current_functional_instability",
+      "rehabilitation_access"
+    ],
+    "expert_decision_distribution": {
+      "A": 0.05,
+      "B": 0.08,
+      "C": 0.86,
+      "D": 0.01
+    },
+    "decision_rationale": "本病例不属于灰色地带，因为主要决策因素指向同一方向。尽管前交叉韧带（ACL）撕裂位于近端，但BEAR植入物或一期修复术仅适用于组织质量良好的急性撕裂；本例受伤已24周，伴有慢性瘢痕组织及合并多韧带损伤，因此选项D不适用。另一手术方案（早期重建）在当前情况下也不合适，因为患者伤前实际运动需求较低，仅表现为活动依赖性不稳而非日常频繁打软腿，康复条件有限，且围手术期风险显著升高（ASA III级或以上、吸烟、合并气道/内科疾病）。因此，目前最稳妥的建议是采取结构化的非手术治疗，配合长期康复与活动指导。虽然“康复优先、必要时延期重建”并非今日的首选推荐，但若在充分康复尝试后仍存在或出现明显不稳，该方案仍可作为合理的备选框架。",
+    "minimum_disclosure_to_patient": [
+      "尽管您的撕裂位于近端，但较新的ACL修复/BEAR方案在此并不适用，因为受伤时间过长且组织质量不佳。",
+      "您的半月板及合并韧带损伤确实重要，但在当前慢性期情况下，它们并不能使修复术变得更合适。",
+      "由于您平时的活动量较低，且除非在转体或走不平路面时膝盖受力，否则日常并不频繁打软腿，因此目前手术并非最佳首选。",
+      "您麻醉和手术的医疗风险高于平均水平，这改变了风险收益的权衡。",
+      "目前推荐的路径是基于结构化康复的非手术治疗方案。",
+      "如果后期在康复后仍出现反复不稳并影响您期望的活动，我们可以重新考虑重建手术；这并不意味着永远不能手术。"
+    ]
+  },
+  "capability_checks": {
+    "biases_to_correct": [
+      "患者认为完全性ACL撕裂总是需要手术。",
+      "患者可能认为，既然撕裂位于近端，ACL修复/BEAR就一定是可选方案。",
+      "患者可能高估了手术在预防关节炎方面的作用。"
+    ],
+    "ambiguities_to_handle": [
+      "自述日常缺乏频繁不稳，部分原因是患者自行限制了转体活动，而非膝关节稳定性正常的证明。",
+      "自述的高转体运动恢复优先级与客观较低的伤前Tegner活动水平相矛盾。"
+    ],
+    "preferences_to_integrate": [
+      "return_to_pivoting_sport_priority（高）应予以深入探讨，并结合实际基线活动水平进行现实核对",
+      "long_term_arthritis_concern（高）应予以明确回应",
+      "surgical_risk_aversion（中）应在高于平均的手术风险背景下进行讨论"
+    ]
+  },
+  "scoring_hints": {
+    "score_S1_on": [
+      "coverage_of_essential",
+      "coverage_of_important",
+      "preference_elicitation_completeness",
+      "question_efficiency"
+    ],
+    "score_S2_on": [
+      "abstraction_accuracy",
+      "conflict_detection",
+      "ambiguity_calibration",
+      "tradeoff_articulation"
+    ],
+    "score_S3_on": [
+      "acceptable_set_match",
+      "unacceptable_set_avoidance",
+      "ranking_alignment_with_expert_distribution",
+      "preference_responsiveness"
+    ]
+  }
+}

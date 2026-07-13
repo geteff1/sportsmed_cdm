@@ -1,0 +1,186 @@
+{
+  "item_id": "SCN-01-ACL-nogray-01-ver3",
+  "scenario_id": "SCN-01-ACL",
+  "case_type": "nogray",
+  "variant_code": "ver3",
+  "case_summary_for_grader": "",
+  "S1_information_gathering": {
+    "essential_clinical_variables": [
+      "tear_completeness",
+      "tear_location",
+      "concomitant_ligament_injury",
+      "current_functional_instability",
+      "knee_range_of_motion",
+      "time_since_injury_weeks",
+      "preinjury_tegner_activity_score",
+      "skeletal_maturity",
+      "rehabilitation_access"
+    ],
+    "important_clinical_variables": [
+      "pivot_shift_grade",
+      "concomitant_meniscal_tear",
+      "concomitant_cartilage_injury",
+      "surgical_risk_class",
+      "prior_contralateral_ACL_injury",
+      "occupational_demand"
+    ],
+    "supplementary_clinical_variables": [
+      "bmi",
+      "smoking_status",
+      "graft_choice_preference",
+      "diabetes_or_immune_compromise"
+    ],
+    "essential_preference_variables": [
+      "surgical_risk_aversion",
+      "rehabilitation_burden_tolerance",
+      "activity_modification_acceptance",
+      "timeline_pressure",
+      "return_to_pivoting_sport_priority"
+    ],
+    "important_preference_variables": [
+      "long_term_arthritis_concern",
+      "financial_or_insurance_constraint"
+    ],
+    "recommended_question_phrasings": [
+      "核磁共振或医生到底是怎么说的？是只有前交叉韧带受伤，还是其他韧带也伤了？",
+      "现在膝盖打软腿的频率到底怎么样？是只在运动时发生，还是日常活动也会这样？",
+      "你的关节活动度恢复全了吗？尤其是完全伸直，膝盖是不是还觉得僵硬？",
+      "如果我们先尝试康复为主的方案，你现实中能经常去接受监督下的治疗吗？也愿意花几个月时间在这上面吗？",
+      "有没有什么截止日期或生活上的压力，让你想尽快走最彻底的治疗路线？"
+    ],
+    "minimum_set_for_safe_decision": [
+      "concomitant_ligament_injury",
+      "current_functional_instability",
+      "knee_range_of_motion",
+      "time_since_injury_weeks",
+      "rehabilitation_access",
+      "surgical_risk_aversion",
+      "rehabilitation_burden_tolerance",
+      "activity_modification_acceptance"
+    ]
+  },
+  "S2_representation": {
+    "target_representation": {
+      "patient_archetype": "young_high_demand_multiligament_unstable_knee_with_tibial_sided_partial_acl_avulsion_pattern",
+      "demand_level": "high_pivoting_recreational",
+      "instability_burden": "severe_frequent_even_in_daily_life",
+      "surgical_risk_profile": "low",
+      "rehab_feasibility": "poor_due_to_limited_access_and_low_tolerance",
+      "preference_profile": "low_surgical_aversion_high_timeline_pressure_low_activity_modification_acceptance",
+      "decision_region": "nogray_tips_strongly_to_A"
+    },
+    "key_abstractions": [
+      "需认识到，多韧带不稳从根本上改变了决策：这并非首选康复证据所针对的标准孤立性ACL灰色地带。",
+      "频繁打软腿、3+轴移试验阳性以及13周时持续的活动度丢失，提示存在具有临床意义的关节不稳，确定性非手术治疗难以取得良好效果。",
+      "尽管患者年龄较轻，但康复资源获取受限及对康复负担耐受度低，削弱了选项B的可行性。",
+      "选项D不合适，因为BEAR技术/一期ACL修复属于针对特定情境下近端撕裂的策略，而本例是合并多韧带损伤的胫骨撕脱型部分ACL损伤。",
+      "选项C尤其不佳，因为患者不愿改变活动方式，且日常活动中仍存在持续不稳。"
+    ],
+    "conflict_resolution_required": [],
+    "ambiguity_resolution_required": [
+      "需明确，患者对ACL损伤的简略描述不应掩盖更重要的手术指征：合并的多韧带不稳。"
+    ],
+    "expected_uncertainty_acknowledgements": [
+      "具体的重建方案可能因医生而异，因为多韧带损伤模式是主要的手术问题，但整体治疗方向仍明确倾向于早期手术稳定。"
+    ]
+  },
+  "S3_decision": {
+    "is_gray_zone": false,
+    "acceptable_options": [
+      "A"
+    ],
+    "unacceptable_options": [
+      {
+        "option_id": "B",
+        "reason": "对于伴有3+轴移试验阳性、日常频繁打软腿、持续活动度受限且难以获得监督下康复的多韧带不稳膝关节，首选康复并非优选策略；延误治疗将增加持续不稳及继发性损伤的风险。"
+      },
+      {
+        "option_id": "C",
+        "reason": "确定性非手术治疗与严重的客观关节不稳、低活动调整接受度及多韧带损伤不相容。"
+      },
+      {
+        "option_id": "D",
+        "reason": "ACL修复术/BEAR技术适用于组织质量良好的选择性急性近端1/3撕裂，而非多韧带不稳膝关节中病程已达13周的胫骨撕脱型部分ACL损伤。"
+      }
+    ],
+    "conditional_recommendation_ranking": [
+      {
+        "condition": "当前病例：多韧带损伤，频繁打软腿，3+轴移试验阳性，伸屈活动度均受限，康复资源获取有限，手术风险厌恶低，时间压力高",
+        "ranking": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      {
+        "condition": "若不存在多韧带损伤，且康复资源获取/耐受度较高",
+        "ranking": [
+          "B",
+          "A",
+          "C",
+          "D"
+        ]
+      }
+    ],
+    "key_decision_triggers": [
+      "concomitant_ligament_injury (multiligament)",
+      "current_functional_instability (frequent_giving_way)",
+      "pivot_shift_grade (3+)",
+      "knee_range_of_motion (both)",
+      "rehabilitation_access (limited)",
+      "rehabilitation_burden_tolerance (low)",
+      "timeline_pressure (high)",
+      "surgical_risk_aversion (low)"
+    ],
+    "expert_decision_distribution": {
+      "A": 0.92,
+      "B": 0.06,
+      "C": 0.01,
+      "D": 0.01
+    },
+    "decision_rationale": "本例已不再属于真正的ACL灰色地带，因为决定性特征是合并的多韧带不稳，而非孤立的ACL损伤。患者在日常活动中频繁出现打软腿，轴移试验3+，13周时仍存在持续性的伸屈活动度丢失，且难以参与高质量的监督下康复训练，这些因素均强烈支持手术稳定。患者的偏好也印证了这一方向：他对手术风险接受度高（风险厌恶低），对长期康复的耐受度低，不愿永久改变活动方式，且时间压力较大。首选康复或确定性非手术治疗将使其面临持续不稳及功能恢复较差的风险。在此框架下，选项A应被视为最接近推荐的手术重建/稳定路径的替代方案，即以ACL重建为核心，同时处理合并的韧带损伤。",
+    "minimum_disclosure_to_patient": [
+      "你的情况不同于单纯的孤立性ACL撕裂，因为你还伴有其他稳定韧带的损伤。",
+      "鉴于不稳程度、持续的活动度丢失以及多韧带损伤模式，推荐的路径是早期手术稳定，而非试图仅靠康复进行确定性治疗。",
+      "术后康复仍然必不可少，但在此情况下，手术的目的是恢复单靠康复难以达到的关节稳定性。",
+      "对于这种损伤模式，BEAR技术或一期ACL修复并非正确选择。",
+      "若不进行手术稳定，持续的打软腿将增加进一步损伤软骨或半月板的风险。"
+    ]
+  },
+  "capability_checks": {
+    "biases_to_correct": [
+      "患者可能部分认为需要手术仅仅是因为“ACL撕裂了”，但临床医生应解释，此处强烈建议手术的真正原因是多韧带不稳的膝关节，而不仅仅是存在ACL损伤。"
+    ],
+    "ambiguities_to_handle": [
+      "患者对MRI结果的简略描述（“从骨头上撕下来了”）应转化为具有临床意义的表述：在多韧带损伤背景下，属于胫骨侧部分ACL撕脱型损伤。",
+      "尽管患者已停止旋转类动作，医生仍应重点评估其在日常活动中的关节不稳情况，以免低估病情严重程度。"
+    ],
+    "preferences_to_integrate": [
+      "时间压力（高）强化了对确定性治疗路径的偏好",
+      "康复负担耐受度（低）削弱了首选康复策略的可行性",
+      "活动方式调整接受度（低）使确定性非手术治疗难以匹配",
+      "手术风险厌恶（低）消除了避免推荐手术的主要理由"
+    ]
+  },
+  "scoring_hints": {
+    "score_S1_on": [
+      "coverage_of_essential",
+      "coverage_of_important",
+      "preference_elicitation_completeness",
+      "question_efficiency"
+    ],
+    "score_S2_on": [
+      "abstraction_accuracy",
+      "conflict_detection",
+      "ambiguity_calibration",
+      "tradeoff_articulation"
+    ],
+    "score_S3_on": [
+      "acceptable_set_match",
+      "unacceptable_set_avoidance",
+      "ranking_alignment_with_expert_distribution",
+      "preference_responsiveness"
+    ]
+  }
+}

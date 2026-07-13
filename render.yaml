@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: sportsmed-cdm
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    # 注意：必须单 worker（-w 1），会话状态存在进程内存里；
+    # --timeout 180 是因为带教 LLM 评分最长可能跑 90 秒以上
+    startCommand: gunicorn -w 1 --threads 8 --timeout 180 -b 0.0.0.0:$PORT app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.6"
+      - key: ACCESS_CODE
+        value: WestChinaHospital
+      - key: LLM_API_KEY
+        sync: false   # 在 Render 控制台手动填写百炼 API Key，不进代码库
