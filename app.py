@@ -23,6 +23,8 @@ from case_loader import discover_cases, load_pair
 from options import ACL_OPTIONS
 from sim_agents import PatientAgent, AssistantAgent, TeacherAgent
 from variable_labels import cn_var_list
+import quota
+from quota import QuotaExceeded
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(BASE, "output")
@@ -53,7 +55,9 @@ if _ENV_KEY:
         CONFIG[_k]["api_key"] = _ENV_KEY
 
 # 访问口令：环境变量 ACCESS_CODE 可覆盖；置空字符串则关闭门禁
-ACCESS_CODE = os.environ.get("ACCESS_CODE", "WestChinaHospital")
+ACCESS_CODE = os.environ.get("ACCESS_CODE", "SportsMedCDM2026")
+# 单条消息字数上限，防止超长输入消耗大模型额度
+MAX_MESSAGE_CHARS = int(os.environ.get("MAX_MESSAGE_CHARS", "500"))
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY") or uuid.uuid4().hex
@@ -106,6 +110,10 @@ def login():
     error = ""
     if request.method == "POST":
         if (request.form.get("code") or "").strip() == ACCESS_CODE:
+            try:
+                quota.consume("login")  # 每日成功登录次数限额
+            except QuotaExceeded as e:
+                return render_template_string(_LOGIN_PAGE, error=str(e)), 429
             session["authed"] = True
             session.permanent = True
             return redirect("/")
@@ -174,6 +182,8 @@ def api_message():
     text = (data.get("text") or "").strip()
     if not text:
         return jsonify({"error": "请输入内容"}), 400
+    if len(text) > MAX_MESSAGE_CHARS:
+        return jsonify({"error": f"单条消息过长，请控制在 {MAX_MESSAGE_CHARS} 字以内"}), 400
     try:
         if target == "assistant":
             reply = sess["assistant"].respond(text, sess["assistant_history"])
@@ -184,6 +194,8 @@ def api_message():
             reply = sess["patient"].respond(text, sess["patient_history"])
             sess["patient_history"] += [{"role": "user", "content": f"医生：{text}"},
                                         {"role": "assistant", "content": reply}]
+    except QuotaExceeded as e:
+        return jsonify({"error": str(e)}), 429
     except Exception as e:  # noqa
         return jsonify({"error": f"智能体调用失败：{e}"}), 502
     sess["transcript"].append({"turn": len(sess["transcript"]) + 1, "target": target, "query": text, "reply": reply})
@@ -205,6 +217,8 @@ def api_feedback():
     teacher = TeacherAgent(CONFIG["teacher_llm_config"])
     try:
         fb = teacher.feedback(stage, sess["gt"], ACL_OPTIONS, _transcript_text(sess), payload)
+    except QuotaExceeded as e:
+        return jsonify({"error": str(e)}), 429
     except Exception as e:  # noqa
         return jsonify({"error": f"反馈生成失败：{e}"}), 502
     return jsonify({"feedback": fb})
@@ -225,6 +239,8 @@ def api_finish():
     try:
         result = teacher.grade(sess["gt"], ACL_OPTIONS, _transcript_text(sess),
                                representation, diagnosis, decision)
+    except QuotaExceeded as e:
+        return jsonify({"error": str(e)}), 429
     except Exception as e:  # noqa
         return jsonify({"error": f"评分失败：{e}"}), 502
 

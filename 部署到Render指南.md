@@ -2,7 +2,7 @@
 
 本指南把系统部署到 [Render](https://render.com) 的免费 Web Service 上，
 得到一个 `https://xxx.onrender.com` 的公网地址。访问需要输入口令
-（当前为 `WestChinaHospital`），API 密钥通过环境变量注入，**不进代码库**。
+（当前为 `SportsMedCDM2026`），API 密钥通过环境变量注入，**不进代码库**。
 
 ---
 
@@ -41,7 +41,7 @@ git push -u origin main
 5. 点 **Apply / Deploy**，等 2–5 分钟构建完成。
 
 完成后你会得到形如 `https://sportsmed-cdm.onrender.com` 的地址，
-打开会先看到口令页，输入 `WestChinaHospital` 即可进入系统。
+打开会先看到口令页，输入 `SportsMedCDM2026` 即可进入系统。
 
 > 也可以不用 Blueprint，手动 New → Web Service，此时需要自己填：
 > Build Command = `pip install -r requirements.txt`，
@@ -52,7 +52,7 @@ git push -u origin main
 
 | 变量 | 说明 | 默认值 |
 |---|---|---|
-| `ACCESS_CODE` | 访问口令；设为空字符串则关闭门禁 | `WestChinaHospital` |
+| `ACCESS_CODE` | 访问口令；设为空字符串则关闭门禁 | `SportsMedCDM2026` |
 | `LLM_API_KEY` | 百炼 API Key（必填，线上没有 config.json） | 无 |
 | `LLM_BASE_URL` | LLM 兼容端点 | 百炼 compatible-mode |
 | `LLM_MODEL` | 模型名 | `qwen3.6-27b` |
@@ -76,5 +76,5 @@ git push -u origin main
 ## 六、本地运行不受影响
 
 本地仍然双击 `启动.bat` 即可，`config.json` 继续生效。
-唯一变化：本地打开也会先要求输入口令 `WestChinaHospital`。
+唯一变化：本地打开也会先要求输入口令 `SportsMedCDM2026`。
 如果本地不想要口令，启动前设 `set ACCESS_CODE=` 即可。

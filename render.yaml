@@ -11,6 +11,10 @@ services:
       - key: PYTHON_VERSION
         value: "3.12.6"
       - key: ACCESS_CODE
-        value: WestChinaHospital
+        value: SportsMedCDM2026
+      - key: DAILY_LOGIN_LIMIT   # 每天最多成功登录次数，0 为不限
+        value: "100"
+      - key: DAILY_LLM_LIMIT     # 每天最多大模型请求次数，0 为不限
+        value: "200"
       - key: LLM_API_KEY
         sync: false   # 在 Render 控制台手动填写百炼 API Key，不进代码库

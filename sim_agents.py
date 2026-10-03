@@ -15,6 +15,8 @@ import time
 from openai import OpenAI
 
 
+
+import quota
 class LLMClient:
     def __init__(self, cfg: dict):
         self.model = cfg.get("model", "qwen3.6-27b")
@@ -26,6 +28,7 @@ class LLMClient:
     def chat(self, messages, max_retries=3, temperature=None, max_tokens=None):
         last = ""
         for i in range(max_retries):
+            quota.consume("llm")  # 每日大模型请求限额；超限抛 QuotaExceeded，不重试
             try:
                 r = self.client.chat.completions.create(
                     model=self.model, messages=messages,
